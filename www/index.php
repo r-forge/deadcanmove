@@ -43,7 +43,23 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
-<p> No content added. </p>
+<p>From a baseline data frame of dead individuals recorded daily at different road stretches, you can simulate varying sub-sampling schemes, calculate roadkill hotspots based on each scheme, and compare hotspots patterns between sampling schemes and the baseline data.</p>
+
+<h2> Install and load </h2>
+<p>Paste the following commands in the R console (when connected to the internet):</p>
+<code>
+install.packages("DeadCanMove", repos="http://R-Forge.R-project.org")<br />
+library(DeadCanMove)<br />
+help("DeadCanMove")<br />
+?hotspots.comparison
+</code>
+<br />
+<br />
+
+<h2> References </h2>
+
+<p> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (submitted) Dead can move? Effects of sampling frequency on the identification of roadkill hotspots</p>
+
 
 <p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
 
