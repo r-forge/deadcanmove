@@ -6,7 +6,7 @@
 Assess how spatial roadkill patterns change with temporal sampling scheme
 }
 \description{
-From a baseline data frame of dead individuals recorded daily at different road stretches, simulate varying sub-sampling schemes, calculate roadkill hotspots based on each sheme, and compare hotspots patterns among sampling schemes and the baseline data.
+From a baseline data frame of dead individuals recorded daily at different road stretches, simulate varying sub-sampling schemes, calculate roadkill hotspots based on each scheme, and compare hotspots patterns between sampling schemes and the baseline data.
 }
 \details{
 \tabular{ll}{

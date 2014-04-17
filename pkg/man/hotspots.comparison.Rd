@@ -4,7 +4,7 @@
 Hotspots comparison
 }
 \description{
-This is a wrapper for the remaining functions in this package (one function to rule them all)
+This is a wrapper for the set of functions in this package (one function to rule them all). You'll probably only need to use this one, which in turn calls each of the remaining ones and does all the calculations.
 }
 \usage{
 hotspots.comparison(dataset, sampl.columns, sampl.intervals, region.column, group.column, include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ...)
@@ -42,7 +42,7 @@ A list with 9 elements:
 \references{
 }
 \author{
-A. Marcia Barbosa
+A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 }
 \note{
 }

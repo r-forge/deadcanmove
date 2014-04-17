@@ -9,7 +9,6 @@ Extract a submatrix for a given taxomic group and/or sampling scheme
 \usage{
 submatrix(dataset, sampl.columns, sampl.interval = 1, group.column = NULL, group.names = NULL, remove.zeros = TRUE, keep.nonsampl.columns = TRUE)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{dataset}{name of the matrix or dataframe to analyze}
   \item{sampl.columns}{index numbers of the (consecutive) columns containing the baseline (daily) sampling data, e.g. 3:180}

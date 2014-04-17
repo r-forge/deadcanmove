@@ -19,16 +19,12 @@ sequential.corr(hotspots.list, hotspots.thresholds, comp.method = "Phi", baselin
 \details{
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A matrix of correlations (or whatever index was defined in \code{method}) between the hotspots obtained for each group and sampling scheme and the hotspots obtained from the baseline data for that group.
 }
 \references{
 }
 \author{
-%%  ~~who you are~~
+A. Marcia Barbosa
 }
 \note{
 }

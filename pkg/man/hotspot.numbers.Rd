@@ -29,7 +29,7 @@ A list of the following matrices:
 \references{
 }
 \author{
-A. Marcia Barbosa, J. Tiago Marques
+A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 }
 \note{
 }

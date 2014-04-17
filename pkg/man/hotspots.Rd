@@ -25,7 +25,7 @@ A list with elements \code{threshold} (an integer value indicating the number of
 Malo, J.E., Suarez, F., Diez, A. (2004) Can we mitigate animal-vehicle accidents using predictive models? J. Appl. Ecol. 41, 701-710 (doi: 10.1111/j.0021-8901.2004.00929.x)
 }
 \author{
-A. Marcia Barbosa, J. Tiago Marques
+A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 }
 \note{
 }

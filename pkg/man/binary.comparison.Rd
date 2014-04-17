@@ -12,7 +12,7 @@ binary.comparison(x, y, method)
 \arguments{
   \item{x}{a binary (0-1) vector}
   \item{y}{a binary (0-1) vector to compare with \code{x}}
-  \item{method}{the association coefficient to use; type binary.comp.methods() for available options}
+  \item{method}{the association coefficient to use; type \code{binary.comp.methods()} for available options}
 }
 \details{
 }
