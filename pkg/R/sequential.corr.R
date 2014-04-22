@@ -10,7 +10,7 @@ function(hotspots.list, hotspots.thresholds, comp.method = "Phi", baseline.inter
 
   hotspots.exclude <- hotspots.thresholds[rowSums(is.na(hotspots.thresholds)) == ncol(hotspots.thresholds), ]
   excluded.groups <- paste(rownames(hotspots.exclude), " ")
-  if(messages) message(length(excluded.groups), " groups excluded for not fulfilling min.total.events: ", excluded.groups)
+  if(messages) message(length(excluded.groups), " group(s) excluded for not fulfilling min.total.events: ", excluded.groups)
   
   hotspots.thresholds <- hotspots.thresholds[rowSums(is.na(hotspots.thresholds)) != ncol(hotspots.thresholds), ]  # excludes groups with all NA in thresholds (= groups without min.total.events)
     groups <- rownames(hotspots.thresholds)

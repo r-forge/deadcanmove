@@ -4,25 +4,44 @@
 Hotspots comparison
 }
 \description{
-This is a wrapper for the set of functions in this package (one function to rule them all). You'll probably only need to use this one, which in turn calls each of the remaining ones and does all the calculations.
+This is a wrapper for the set of functions in this package (one function to 
+rule them all). You'll probably only need to use this one, which in turn calls 
+each of the remaining ones and does all the calculations.
 }
 \usage{
-hotspots.comparison(dataset, sampl.columns, sampl.intervals, region.column, group.column, include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ...)
+hotspots.comparison(dataset, sampl.columns, sampl.intervals, region.column, 
+group.column, include.all.together = TRUE, confidence = 0.95, 
+min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", 
+plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ...)
 }
 \arguments{
   \item{dataset}{name of the matrix or dataframe to analyze}
-  \item{sampl.columns}{index numbers of the columns containing the (daily) sampling data, e.g. 1:180; must be consecutive and start with 1}
+  \item{sampl.columns}{index numbers of the columns containing the (daily) 
+  sampling data, e.g. 1:180; must be consecutive and start with 1}
   \item{sampl.intervals}{intervals at which to extract sampling data, e.g. 1:30}
-  \item{region.column}{name or index number of the column containing the regions (road sectors, sites) to classify as hotspots or non-hotspots}
-  \item{group.column}{name or index number of the column containing the taxa or groups to analyse separately, e.g. 3 or "Family"; if NULL, all records will be used together}
-  \item{include.all.together}{logical, whether to get subsampling matrices also for the complete data (including all groups combined)}
+  \item{region.column}{name or index number of the column containing the regions 
+  (road sectors, sites) to classify as hotspots or non-hotspots}
+  \item{group.column}{name or index number of the column containing the taxa or 
+  groups to analyse separately, e.g. 3 or "Family"; if NULL, all records will be 
+  used together}
+  \item{include.all.together}{logical, whether to get subsampling matrices also 
+  for the complete data (including all groups combined)}
   \item{confidence}{confidence threshold to consider hotspots; defaults to 0.95}
-  \item{min.total.events}{minimum total number of events to calculate hotspots for a group}
-  \item{min.hotspot.threshold}{minimum number of events for a region to be considered a hotspot}
-  \item{comp.method}{the method with which to compare the hotspots obtained with increasing sampl.intervals with those of the baseline scenario; type 'binary.comp.methods()' for available options}
-  \item{plot}{logical, whether to plot the correlations between subsamples and baseline for each group (may cause function to fail if sep.plots = FALSE and figure margins are too large for the number of resulting plots)}
-  \item{sep.plots}{logical, whether to present the plots in separate windows rather than all in the same window}
-  \item{omit.baseline.interval}{logical, whether to omit the first column (correlation of baseline hotspots with themselves) from calculations and results}
+  \item{min.total.events}{minimum total number of events to calculate hotspots 
+  for a group}
+  \item{min.hotspot.threshold}{minimum number of events for a region to be 
+  considered a hotspot}
+  \item{comp.method}{the method with which to compare the hotspots obtained with 
+  increasing sampl.intervals with those of the baseline scenario; type 
+  \code{binary.comp.methods()} for available options}
+  \item{plot}{logical, whether to plot the correlations between subsamples and 
+  baseline for each group (may cause function to fail if \code{sep.plots = FALSE} 
+  and figure margins are too large for the number of resulting plots)}
+  \item{sep.plots}{logical, whether to present the plots in separate windows 
+  rather than all in the same window}
+  \item{omit.baseline.interval}{logical, whether to omit the first column 
+  (correlation of baseline hotspots with themselves) from calculations and 
+  results}
   \item{\dots}{additional arguments to pass to the \code{\link{plot}} function}
 }
 \details{
@@ -51,7 +70,7 @@ A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 \examples{
 data(roadkills)
 
-hc <- hotspots.comparison(dataset = roadkills, sampl.columns = 3:ncol(roadkills), sampl.intervals = 1:5, region.column = "site", group.column = "group", include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ylim = c(0, 1))
+hc <- hotspots.comparison(dataset = roadkills, sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:5, region.column = "sector", group.column = "taxon", include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ylim = c(0, 1))
 }
 \keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd2 }
