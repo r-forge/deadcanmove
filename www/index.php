@@ -43,22 +43,30 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
-<p>From a baseline data frame of dead individuals recorded daily at different road stretches, you can simulate varying sub-sampling schemes, calculate roadkill hotspots based on each scheme, and compare hotspots patterns between sampling schemes and the baseline data.</p>
+<p>From a baseline data frame of dead individuals recorded daily at different road stretches, you can simulate varying sampling schemes (e.g. surveys every other day, every 5 days, once a month...), determine roadkill hotspots based on each sampling scheme, and compare hotspot patterns between sampling schemes and the baseline data.</p>
 
 <h2> Install and load </h2>
-<p>Paste the following commands in the R console (when connected to the internet):</p>
+<p> To install <i>DeadCanMove</i> directly from R-Forge, paste the following command in the R console when connected to the internet:</p>
 <code>
 install.packages("DeadCanMove", repos="http://R-Forge.R-project.org")<br />
+</code>
+<p> If this fails, you can download the <a href="http://r-forge.r-project.org/R/?group_id=1875">compressed source files</a> and then install the package from your disk  (something like "<i>Packages - Install packages from local zip files</i>", or "<i>Tools - Install packages - Install from: Package Archive File</i>", ... depending on your R interface).</p>
+
+<p> Then, each time you start a new R session, use the following commands to load the package and maybe check out its help files:</p>
+
+<code>
 library(DeadCanMove)<br />
 help("DeadCanMove")<br />
-?hotspots.comparison
+?hotspots.comparison<br />
 </code>
-<br />
-<br />
+
+<p> You can then run some of the examples provided at the bottom of the help files, to see how the fuctions can be used and what their outputs look like.</p>
 
 <h2> References </h2>
 
-<p> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (submitted) Dead can move? Effects of sampling frequency on the identification of roadkill hotspots</p>
+<p><i> This package is a companion to the following article:</i></p>
+
+<p> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (<i>under revision</i>) Dead can move? Effects of sampling frequency on the identification of roadkill hotspots.</p>
 
 
 <p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
