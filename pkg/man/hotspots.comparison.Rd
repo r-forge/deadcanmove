@@ -4,9 +4,9 @@
 Hotspots comparison
 }
 \description{
-This is a wrapper for the set of functions in this package (one function to 
-rule them all). You'll probably only need to use this one, which in turn calls 
-each of the remaining ones and does all the calculations.
+This is a wrapper for the set of functions in this package (one function 
+to rule them all). You'll probably only need to use this one, which in turn 
+calls each of the other functions and does all the calculations in one step.
 }
 \usage{
 hotspots.comparison(dataset, sampl.columns, sampl.intervals, region.column, 
