@@ -43,14 +43,14 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
-<p>From a baseline data frame of dead individuals recorded daily at different road stretches, you can simulate varying sampling schemes (e.g. surveys every other day, every 5 days, once a month...), determine roadkill hotspots based on each sampling scheme, and compare hotspot patterns between sampling schemes and the baseline data.</p>
+<p>From a baseline data frame of dead individuals recorded daily at different road stretches (like the <i>roadkills</i> sample dataset provided with the package), you can simulate varying sampling schemes (i.e. surveys at increasing intervals), determine roadkill hotspots based on each sampling scheme, and compare hotspot patterns between sampling schemes and the baseline data.</p>
 
 <h2> Install and load </h2>
 <p> To install <i>DeadCanMove</i> directly from R-Forge, paste the following command in the R console when connected to the internet:</p>
 <code>
 install.packages("DeadCanMove", repos="http://R-Forge.R-project.org")<br />
 </code>
-<p> If this fails, you can download the <a href="http://r-forge.r-project.org/R/?group_id=1875">compressed source files</a> and then install the package from your disk  (something like "<i>Packages - Install packages from local zip files</i>", or "<i>Tools - Install packages - Install from: Package Archive File</i>", ... depending on your R interface).</p>
+<p> This normally requires the latest R version. Otherwise, you can download the <a href="http://r-forge.r-project.org/R/?group_id=1875">compressed source files</a> and then install the package from your disk  (something like "<i>Packages - Install packages from local zip files</i>", or "<i>Tools - Install packages - Install from: Package Archive File</i>", or "<i>Packages & Data - Package installer, Packages repository - Local binary package</i>" ... depending on your R interface).</p>
 
 <p> Then, each time you start a new R session, use the following commands to load the package and maybe check out its help files:</p>
 
@@ -60,7 +60,14 @@ help("DeadCanMove")<br />
 ?hotspots.comparison<br />
 </code>
 
-<p> You can then run some of the examples provided at the bottom of the help files, to see how the fuctions can be used and what their outputs look like.</p>
+<h2> Usage example </h2>
+<p> The following commands will load the package and the <i>roadkills</i> sample data, get a look at a part of these data, and see how roadkill patterns obtained from increasingly sparse sampling relate to those obtained from the whole (baseline) data, as was done in Santos et al. (under revision):</p>
+<code>
+library(DeadCanMove)<br>
+data(roadkills)<br><br>
+roadkills[780:790, 1:10]<br><br>
+hotspots.comparison(dataset = roadkills, sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:30, region.column = "segment", group.column = "taxon", include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, pch = 20, ylim = c(0, 1))<br>
+</code>
 
 <h2> References </h2>
 
