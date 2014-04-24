@@ -52,7 +52,7 @@ group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
 keep.nonsampl.columns = TRUE)
 
 hsl <- sequential.hotspots(dataset = roadkills, submats = submats, 
-region.column = "sector", first.subsampl.col = 4, confidence = 0.95)
+region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
 
 hsn <- hotspot.numbers(hotspots.list = hsl, sampl.intervals = 1:3, groups = as.character(unique(roadkills$taxon)), include.all.together = TRUE, min.total.events = 80, min.hotspot.threshold = 2)
 

@@ -5,7 +5,7 @@ Extract a submatrix for a given taxomic group and/or sampling scheme
 }
 \description{
 Given a baseline dataset, this function extracts a submatrix for a given taxomic  
-group and/or sampling scheme.
+group and/or sampling interval.
 }
 \usage{
 submatrix(dataset, sampl.columns, sampl.interval = 1, group.column = NULL, 

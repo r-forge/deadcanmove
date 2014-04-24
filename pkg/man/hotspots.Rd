@@ -17,7 +17,7 @@ confidence = 0.95)
   \item{submat}{name of the matrix or dataframe containing the data of the group 
   and sampling interval for which to calculate hotspots}
   \item{region.column}{name or index number of the column containing the regions 
-  (road sectors, sites) to classify as hotspots or non-hotspots}
+  (road segments, sites) to classify as hotspots or non-hotspots}
   \item{subsampl.columns}{index numbers of the consecutive columns of submat 
   (or, if there is no submat, of the dataset) containing the (daily) sampling 
   data, e.g. 3:180}
@@ -48,7 +48,7 @@ A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 \examples{
 data(roadkills)
 
-hs <- hotspots(dataset = roadkills, submat = NULL, region.column = "sector", subsampl.columns = 4:ncol(roadkills), confidence = 0.95)
+hs <- hotspots(dataset = roadkills, submat = NULL, region.column = "segment", subsampl.columns = 4:ncol(roadkills), confidence = 0.95)
 
 hs
 }

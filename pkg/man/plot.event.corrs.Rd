@@ -29,14 +29,14 @@ A. Marcia Barbosa
 \note{
 }
 \seealso{
-\code{\link{binary.comparison}}, \code{\link{sequential.corr}}
+\code{\link{plot}}, \code{\link{binary.comparison}}, \code{\link{sequential.corr}}
 }
 \examples{
 data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills, sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:5, group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE, keep.nonsampl.columns = TRUE)
 
-hsl <- sequential.hotspots(dataset = roadkills, submats = submats, region.column = "sector", first.subsampl.col = 4, confidence = 0.95)
+hsl <- sequential.hotspots(dataset = roadkills, submats = submats, region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
 
 hsn <- hotspot.numbers(hotspots.list = hsl, sampl.intervals = 1:5, groups = as.character(unique(roadkills$taxon)), include.all.together = TRUE, min.total.events = 80, min.hotspot.threshold = 2)
 

@@ -15,7 +15,7 @@ keep.nonsampl.columns = TRUE)
 \arguments{
   \item{dataset}{name of the matrix or dataframe to analyze}
   \item{sampl.columns}{numbers of the consecutive columns with the (daily) 
-  sampling data, e.g. 3:180}
+  sampling data, e.g. 4:180}
   \item{sampl.intervals}{intervals at which to extract sampling data, e.g. 1:30 
   or c(1,2,7,15,30)}
   \item{group.column}{name or index number of the column containing the taxa or 

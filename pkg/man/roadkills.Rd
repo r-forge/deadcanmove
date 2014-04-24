@@ -13,7 +13,7 @@ An imaginary dataset of roadkill data for 5 "taxonomic" groups.
   \describe{
     \item{\code{individ}}{an integer vector attributing an identifier to each  
     recorded individual}
-    \item{\code{sector}}{a numeric vector identifying the road strecth at which 
+    \item{\code{segment}}{a numeric vector identifying the road segment at which 
     each individual was recorded}
     \item{\code{group}}{a character vector indicating the "taxonomic" group to 
     which each individual belongs}
@@ -24,12 +24,16 @@ An imaginary dataset of roadkill data for 5 "taxonomic" groups.
 }
 \details{
 Each row corresponds to an individual recorded at a particular road stretch 
-(\code{sector}), with a 1 if it was present and a 0 if it was not present at 
-that sector on each of the sampling days. Individuals were not manually removed 
+(\code{segment}), with a 1 if it was present and a 0 if it was not present at 
+that segment on each of the sampling days. Individuals were not manually removed 
 from the road, so each individual has value 1 in all days in which its body was 
 detected on the road.
 }
 \source{
+Freely modified from data collected by:
+Santos S.M., Carvalho F., Mira A. (2011) How long do the dead survive on the 
+road? Carcass persistence probability and implications for road-kill monitoring 
+surveys. PLoS ONE 6(9), e25383 (doi:10.1371/journal.pone.0025383)
 }
 \references{
 }

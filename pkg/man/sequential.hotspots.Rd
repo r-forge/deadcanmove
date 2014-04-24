@@ -17,7 +17,7 @@ confidence = 0.95)
   \item{submats}{a list of the submatrices for which to calculate the hotspots 
   (result of the \code{\link{sequential.submatrix}} function)}
   \item{region.column}{name or index number of the column containing the regions 
-  (road sectors, sites) to classify as hotspots or non-hotspots}
+  (road segments, sites) to classify as hotspots or non-hotspots}
   \item{first.subsampl.col}{index number of the first column containing 
   subsampling data}
   \item{confidence}{confidence threshold to consider hotspots. The default is 
@@ -53,7 +53,7 @@ group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
 keep.nonsampl.columns = TRUE)
 
 shs <- sequential.hotspots(dataset = roadkills, submats = submats, 
-region.column = "sector", first.subsampl.col = 4, confidence = 0.95)
+region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
 
 str(shs)
 }

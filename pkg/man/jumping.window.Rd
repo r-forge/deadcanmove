@@ -18,6 +18,7 @@ jumping.window(sampl.columns, window.size, gap.size)
   \item{gap.size}{size (in days) of the gap between sampling windows}
 }
 \details{
+This function is soon to be integrated within \code{\link{submatrix}} to provide for additional sampling scheme options.
 }
 \value{
 An integer vector of the sampling days for the given sampling (window + gap) 
@@ -42,4 +43,3 @@ jumping.window(sampl.columns = 4:ncol(roadkills), window.size = 1, gap.size = 1)
 jumping.window(sampl.columns = 4:ncol(roadkills), window.size = 3, gap.size = 5)
 }
 \keyword{ moving window }
-\keyword{ sliding window }
