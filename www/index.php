@@ -21,7 +21,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 	<link href="http://<?php echo $themeroot; ?>styles/estilo1.css" rel="stylesheet" type="text/css" />
   </head>
 
-<body>
+<body bgcolor=CCCCFF>
 
 <!-- R-Forge Logo -->
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -32,6 +32,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 <!-- get project title  -->
 <!-- own website starts here, the following may be changed as you like -->
+
+<font face="helvetica, verdana, arial"> 
 
 <?php if ($handle=fopen('http://'.$domain.'/export/projtitl.php?group_name='.$group_name,'r')){
 $contents = '';
@@ -50,7 +52,7 @@ echo $contents; } ?>
 <code>
 install.packages("DeadCanMove", repos="http://R-Forge.R-project.org")<br />
 </code>
-<p> This normally requires the latest R version. Otherwise, you can download the <a href="http://r-forge.r-project.org/R/?group_id=1875">compressed source files</a> and then install the package from your disk  (something like "<i>Packages - Install packages from local zip files</i>", or "<i>Tools - Install packages - Install from: Package Archive File</i>", or "<i>Packages & Data - Package installer, Packages repository - Local binary package</i>" ... depending on your R interface).</p>
+<p> This normally requires the latest R version. Otherwise, you can download the <a href="http://r-forge.r-project.org/R/?group_id=1875">compressed source files</a> (either <i>.tar.gz</i> or <i>.zip</i>) and then install the package from your disk (something like "<i>Packages - Install packages from local zip files</i>", or "<i>Tools - Install packages - Install from: Package Archive File</i>", or "<i>Packages & Data - Package installer, Packages repository - Local binary package</i>", ... depending on your R menu interface).</p>
 
 <p> Then, each time you start a new R session, use the following commands to load the package and maybe check out its help files:</p>
 
@@ -58,25 +60,24 @@ install.packages("DeadCanMove", repos="http://R-Forge.R-project.org")<br />
 library(DeadCanMove)<br />
 help("DeadCanMove")<br />
 ?hotspots.comparison<br />
-</code>
+</code><br />
 
 <h2> Usage example </h2>
-<p> The following commands will load the package and the <i>roadkills</i> sample data, get a look at a part of these data, and see how roadkill patterns obtained from increasingly sparse sampling relate to those obtained from the whole (baseline) data, as was done in Santos et al. (under revision):</p>
+<p> The following commands will load the package and the <i>roadkills</i> sample dataset, get a look at a part of these data, and see how roadkill patterns obtained from increasingly sparse sampling relate to those obtained from the whole (baseline) data, as is done in Santos et al. (submitted):</p>
 <code>
 library(DeadCanMove)<br>
 data(roadkills)<br><br>
 roadkills[780:790, 1:10]<br><br>
 hotspots.comparison(dataset = roadkills, sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:30, region.column = "segment", group.column = "taxon", include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, pch = 20, ylim = c(0, 1))<br>
-</code>
+</code><br />
 
 <h2> References </h2>
+<p>This package is a companion to the following article, which should be cited if you use it:</p>
+<p><i> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (submitted) Dead can move? Sampling effects on the identification of roadkill hotspots and implications for survey design and mitigation.</i></p>
+<p>To see how to cite the package itself, load it in R and type <code>citation(package="DeadCanMove")</code></p>
 
-<p><i> This package is a companion to the following article:</i></p>
+<p> The R-Forge project summary page is found <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/">here</a>. </p>
 
-<p> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (<i>under revision</i>) Dead can move? Effects of sampling frequency on the identification of roadkill hotspots.</p>
-
-
-<p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
-
+</font> 
 </body>
 </html>

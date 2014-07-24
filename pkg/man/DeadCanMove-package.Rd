@@ -28,8 +28,8 @@ Maintainer: A. Marcia Barbosa <barbosa@uevora.pt>
 }
 \references{
 Santos S.M., Marques J.T., Lourenco A., Medinas D., Barbosa A.M., Beja P., 
-Mira A. (under revision) Dead can move? Effects of sampling frequency on the 
-identification of roadkill hotspots
+Mira A. (under revision) Dead can move? Sampling effects on the identification 
+of roadkill hotspots and implications for survey design and mitigation
 }
 \keyword{ package }
 \seealso{
