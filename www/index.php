@@ -21,7 +21,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 	<link href="http://<?php echo $themeroot; ?>styles/estilo1.css" rel="stylesheet" type="text/css" />
   </head>
 
-<body bgcolor=CCCCFF>
+<body bgcolor=FFFFFF>
 
 <!-- R-Forge Logo -->
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -45,7 +45,7 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
-<p>From a baseline data frame of dead individuals recorded daily at different road stretches (like the <i>roadkills</i> sample dataset provided with the package), you can simulate varying sampling schemes (i.e. surveys at increasing intervals), determine roadkill hotspots based on each sampling scheme, and compare hotspot patterns between sampling schemes and the baseline data.</p>
+<p>From a baseline data frame of roadkilled individuals recorded daily at different road stretches (like the <i>roadkills</i> sample dataset provided with the package), you can simulate varying sampling schemes (i.e. surveys at increasing intervals), determine roadkill hotspots based on each sampling scheme, and compare hotspot patterns between sampling schemes and the baseline data.</p>
 
 <h2> Install and load </h2>
 <p> To install <i>DeadCanMove</i> directly from R-Forge, paste the following command in the R console when connected to the internet:</p>
@@ -62,8 +62,10 @@ help("DeadCanMove")<br />
 ?hotspots.comparison<br />
 </code><br />
 
+
 <h2> Usage example </h2>
-<p> The following commands will load the package and the <i>roadkills</i> sample dataset, get a look at a part of these data, and see how roadkill patterns obtained from increasingly sparse sampling relate to those obtained from the whole (baseline) data, as is done in Santos et al. (submitted):</p>
+
+<p> The following commands will load the package and the <i>roadkills</i> sample dataset, get a look at a part of these data, and see how roadkill patterns obtained from increasingly sparse sampling relate to those obtained from the whole (baseline) data, as is done in Santos et al. (under review):</p>
 <code>
 library(DeadCanMove)<br>
 data(roadkills)<br><br>
@@ -71,9 +73,14 @@ roadkills[780:790, 1:10]<br><br>
 hotspots.comparison(dataset = roadkills, sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:30, region.column = "segment", group.column = "taxon", include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, pch = 20, ylim = c(0, 1))<br>
 </code><br />
 
+A complete <b><a href="DeadCanMove-manual.pdf">reference manual</a></b> is available based on the package help files.
+
+
 <h2> References </h2>
-<p>This package is a companion to the following article, which should be cited if you use it:</p>
-<p><i> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (submitted) Dead can move? Sampling effects on the identification of roadkill hotspots and implications for survey design and mitigation.</i></p>
+
+<p>This package is a companion to the following article, which should be cited when you use it:</p>
+<p><i> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (under review) Sampling effects on the identification of roadkill hotspots: implications for survey design and mitigation.</i></p>
+
 <p>To see how to cite the package itself, load it in R and type <code>citation(package="DeadCanMove")</code></p>
 
 <p> The R-Forge project summary page is found <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/">here</a>. </p>

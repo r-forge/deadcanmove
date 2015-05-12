@@ -4,22 +4,33 @@
 Jumping window
 }
 \description{
-It's like a moving or sliding window, but with the option for gaps between 
-windows.
+This function extracts a moving (a.k.a. running, rolling, sliding) window but with no overlap between windows and with the option for gaps between windows.
 }
 \usage{
-jumping.window(vector, window.size, gap.size)
+jumping.window(sampl.columns, window.size, gap.size, start.column = 1, J = FALSE)
 }
 \arguments{
-  \item{vector}{a vector from which to extract the jumping windows}
-  \item{window.size}{integer value indicating the size of each window to extract from \code{vector}}
-  \item{gap.size}{integer value indicating the size of the gap between the windows to extract from \code{vector}}
+  \item{sampl.columns}{
+index numbers of the consecutive columns with the sampling data (e.g. 3:180) from which to extract the jumping windows. Can also be any vector from which to extract a jumpting window.
+}
+  \item{window.size}{
+size of each sampling window/season (consecutive sampling days each time)
+}
+  \item{gap.size}{
+size of the gap between sampling windows. Can be zero or a positive integer.
+}
+  \item{start.column}{
+column of sampl.columns where to actually start the sampling windows. The default is 1, but e.g. with a gap size of 1 between windows, the start column can be either 1 or 2.
+}
+  \item{J}{
+  logical, whether to provide the results in the form of J for function \code{carcass::etterson}. Defaults to FALSE.
+  }
 }
 \details{
-This function is soon to be integrated within \code{\link{submatrix}} to provide for additional sampling scheme options.
+This function is now integrated within \code{\link{submatrix}} to provide for additional sampling scheme options.
 }
 \value{
-A vector containing the elements of \code{vector} included in the extracted windows (elements falling within the gaps are left out).
+This function returns a vector containing the elements of \code{sampl.columns} that are included in the extracted windows; elements falling within the gaps are left out.
 }
 \references{
 }
@@ -35,16 +46,16 @@ data(roadkills)
 
 names(roadkills)
 
-jumping.window(vector = 4:ncol(roadkills), window.size = 1, gap.size = 0)
+jumping.window(4:ncol(roadkills), window.size = 1, gap.size = 0)
 
-jumping.window(vector = 4:ncol(roadkills), window.size = 1, gap.size = 1)
+jumping.window(4:ncol(roadkills), window.size = 1, gap.size = 1)
 
-w3g5 <- jumping.window(vector = 4:ncol(roadkills), window.size = 3, gap.size = 5)
+w3g5 <- jumping.window(4:ncol(roadkills), window.size = 3, gap.size = 5)
 
 w3g5
 
-sm <- submatrix(dataset = roadkills, sampl.columns = w3g5, sampl.interval = 1, 
-group.column = "taxon", group.names = NULL, remove.zeros = TRUE, 
+sm <- submatrix(dataset = roadkills, sampl.columns = w3g5, sampl.interval = 1,
+group.column = "taxon", group.names = NULL, remove.zeros = TRUE,
 keep.nonsampl.columns = TRUE)
 }
-\keyword{ moving window }
+\keyword{}

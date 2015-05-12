@@ -48,7 +48,7 @@ function(dataset, sampl.columns, sampl.intervals, region.column, group.column, i
     event.balance <- event.balance[ , -1]
   }
   
-  if (plot)  plot.event.corrs(event.corrs, sep.plots = sep.plots, ...)
+  if (plot)  plotEventCorrs(event.corrs, sep.plots = sep.plots, ...)
   
   return(list(hotspots.list = hotspots.list$hotspots.maps, N.events = hs.numbers$N.events, HS.threshold = hs.numbers$HS.threshold, N.hotspots = hs.numbers$N.hotspots, events.in.HS = hs.numbers$events.in.HS, event.corrs = event.corrs, event.loss = event.loss, event.gain = event.gain, event.balance = event.balance))
   

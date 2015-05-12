@@ -1,8 +1,13 @@
 binary.comparison <-
 function(x, y, method) {
-  # version 1.3 (28 Oct 2013)
+
   # x and y are 2 binary (0-1) vectors
-  # 'method': association coefficient to use; type binary.comp.methods() for available options
+  # 'method': association coefficient to use; type binary.comp.methods for available options
+  
+  binary.comp.methods <- c("Phi", "Mathews", "Yule", "Jaccard", "Baroni", "kappa", "CCR", "TSS", "gain", "loss", "balance")
+  
+  if(!(method %in% binary.comp.methods)) 
+    stop ("'method' must be one of (case-sensitive) ", binary.comp.methods)
   
   x0 <- x == 0
   x1 <- x == 1
@@ -28,8 +33,8 @@ function(x, y, method) {
     S <- (a + b) / N
     P <- (a + c) / N
     MCC <- (a / N - S * P) / sqrt(prod(P, S, (1 - S), (1 - P)))
+    # same as (((a * d) - (b * c)) / sqrt((a + c) * (a + b) * (c + d) * (b + d)))
     return(MCC)
-    #return(((a * d) - (b * c)) / sqrt((a + c) * (a + b) * (c + d) * (b + d)))  # equivalent
   }  # end if Mathews
   
   else if (method == "Yule") return((a * d - b * c)/(a * d + b * c))
@@ -48,7 +53,8 @@ function(x, y, method) {
     return((sqrt(C * D) + C) / ((sqrt(C * D)) + A + B - C))
   }  # end if Baroni
   
-  else if (method == "kappa") return(((a+d)-(((a+c)*(a+b)+(b+d)*(c+d))/N))/(N-(((a+c)*(a+b)+(b+d)*(c+d))/N)))
+  else if (method == "kappa") return(((a+d)-(((a+c)*(a+b)+(b+d)*(c+d))/N))/
+                                       (N-(((a+c)*(a+b)+(b+d)*(c+d))/N)))
   
   else if (method == "CCR")  return((a + d) / N)
   
@@ -60,7 +66,5 @@ function(x, y, method) {
     else if (method == "loss") return(sum(diff == -1))
     else if (method == "balance") return(sum(diff))
   }  # end if gain | loss | balance
-
-  else stop("Invalid 'method'; type 'binary.comp.methods()' for available options.")
   
 }
