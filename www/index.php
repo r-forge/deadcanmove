@@ -79,7 +79,7 @@ A complete <b><a href="DeadCanMove-manual.pdf">reference manual</a></b> is avail
 <h2> References </h2>
 
 <p>This package is a companion to the following article, which should be cited when you use it:</p>
-<p><i> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (under review) Sampling effects on the identification of roadkill hotspots: implications for survey design and mitigation.</i></p>
+<p><i> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (in review) Sampling effects on the identification of roadkill hotspots and implications for survey design.</i></p>
 
 <p>To see how to cite the package itself, load it in R and type <code>citation(package="DeadCanMove")</code></p>
 

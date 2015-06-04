@@ -19,6 +19,7 @@ function(dataset, submats, submats.baseline, region.column, group.column, first.
       corrs.tables[[grp]][as.character(s), "p"] <- corr$p.value
     }; rm(s)
   }; rm(grp)
+  cat("Results saved as list. Ranges of values:\n\n")
   for (i in 1:length(corrs.tables))  cat(names(corrs.tables)[i], "| Rho:", round(range(corrs.tables[[i]][,1]), 2), "| p-value:", round(range(corrs.tables[[i]][,2]), 2), "\n")
   return(invisible(corrs.tables))
 }

@@ -28,8 +28,7 @@ Maintainer: A. Marcia Barbosa <barbosa@uevora.pt>
 }
 \references{
 Santos S.M., Marques J.T., Lourenco A., Medinas D., Barbosa A.M., Beja P.,
-Mira A. (under revision) Sampling effects on the identification
-of roadkill hotspots and implications for survey design and mitigation
+Mira A. (in review) Sampling effects on the identification of roadkill hotspots and implications for survey design.
 }
 \keyword{ package }
 \seealso{
@@ -45,4 +44,25 @@ comp.method = "Phi", plot = TRUE, sep.plots = FALSE,
 omit.baseline.interval = TRUE, ylim = c(0, 1))
 
 hc
+
+
+\dontrun{
+# calculate hotspots for the seqsubmats:
+
+seqsubmats.hs <- vector("list", length(seqsubmats))
+for (g in 1:length(seqsubmats)) {
+  seqsubmats.hs[[g]] <- sequential.hotspots(dataset = roadkills, submats = seqsubmats[[g]], region.column = "segment", first.subsampl.col = 4)
+}; rm(g)
+names(seqsubmats.hs) <- paste0(names(seqsubmats), ".hs")
+
+
+# calculate hotspot correlation, loss, gain or balance for different replicates
+# per sampling scheme and animal group:
+
+replicate.corrs <- repl.hs.comp(seqsubmats.hs = seqsubmats.hs, 
+hs.baseline = hs.baseline, method = "Phi")
+
+replicate.gains <- repl.hs.comp(seqsubmats.hs = seqsubmats.hs, 
+hs.baseline = hs.baseline, method = "gain")
+}
 }
