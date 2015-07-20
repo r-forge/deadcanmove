@@ -28,7 +28,7 @@ Maintainer: A. Marcia Barbosa <barbosa@uevora.pt>
 }
 \references{
 Santos S.M., Marques J.T., Lourenco A., Medinas D., Barbosa A.M., Beja P.,
-Mira A. (in review) Sampling effects on the identification of roadkill hotspots and implications for survey design.
+Mira A. (in press) Sampling effects on the identification of roadkill hotspots and implications for survey design. Journal of Environmental Management.
 }
 \keyword{ package }
 \seealso{
