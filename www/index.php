@@ -65,7 +65,7 @@ help("DeadCanMove")<br />
 
 <h2> Usage example </h2>
 
-<p> The following commands will load the package and the <i>roadkills</i> sample dataset, get a look at a part of these data, and see how roadkill patterns obtained from increasingly sparse sampling relate to those obtained from the whole (baseline) data, as is done in Santos et al. (in press):</p>
+<p> The following commands will load the package and the <i>roadkills</i> sample dataset, get a look at a part of these data, and see how roadkill patterns obtained from increasingly sparse sampling relate to those obtained from the whole (baseline) data, as is done in Santos et al. (2015):</p>
 <code>
 library(DeadCanMove)<br>
 data(roadkills)<br><br>
@@ -79,7 +79,7 @@ A complete <b><a href="DeadCanMove-manual.pdf">reference manual</a></b> is avail
 <h2> References </h2>
 
 <p>This package is a companion to the following article, which should be cited when you use it:</p>
-<p><i> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (in press) Sampling effects on the identification of roadkill hotspots: implications for survey design. Journal of Environmental Management,</i> DOI: 10.1016/j.jenvman.2015.07.037</p>
+<p><i> Santos S.M., Marques J.T., Louren&ccedil;o A., Medinas D., Barbosa A.M., Beja P., Mira A. (2015) Sampling effects on the identification of roadkill hotspots: implications for survey design. Journal of Environmental Management</i>, 162: 87-95. DOI: <a href="http://www.sciencedirect.com/science/article/pii/S0301479715301821">10.1016/j.jenvman.2015.07.037</a></p>
 
 <p>To see how to cite the package itself, load it in R and type <code>citation(package="DeadCanMove")</code></p>
 
