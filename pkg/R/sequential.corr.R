@@ -17,8 +17,10 @@ function(hotspots.list, hotspots.thresholds, comp.method = "Phi", baseline.inter
   colnames(event.corrs) <- sampl.intervals
 
   for(g in groups) for(i in sampl.intervals) {
-    submat.name <- paste(g, ".w", i, ".g", i, sep = "")
-    baseline.name <- paste(g, ".w", baseline.gap, ".g", baseline.gap, sep = "")
+    #submat.name <- paste(g, ".w", i, ".g", i, sep = "")
+    #baseline.name <- paste(g, ".w", baseline.gap, ".g", baseline.gap, sep = "")
+    submat.name <- paste(g, i, sep = ".intv")
+    baseline.name <- paste(g, baseline.interval, sep = ".intv")
     submat.hs <- hotspots.list$hotspots.maps[[submat.name]]$hotspot
     baseline.hs <- hotspots.list$hotspots.maps[[baseline.name]]$hotspot
     event.corrs[g, i] <- binary.comparison(baseline.hs, submat.hs, method = comp.method)

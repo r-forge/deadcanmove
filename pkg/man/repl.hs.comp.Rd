@@ -7,7 +7,8 @@ Replicate hotspot comparison
 This function calculates hotspot correlation, loss, gain or balance for the different replicates per sampling scheme and taxonomic group.
 }
 \usage{
-repl.hs.comp(seqsubmats.hs, hs.baseline, method = "Phi", stats = TRUE, plot = TRUE, plot.mean = TRUE, ylim = NULL, horiz.line = NA)
+repl.hs.comp(seqsubmats.hs, hs.baseline, method = "Phi", stats = TRUE, 
+plot = TRUE, plot.mean = TRUE, ylim = NULL, horiz.line = NA)
 }
 \arguments{
   \item{seqsubmats.hs}{

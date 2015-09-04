@@ -3,14 +3,15 @@ function(hotspots.list, sampl.intervals, groups, include.all.together = TRUE, mi
 
   #if (!is.integer(sampl.intervals) | sampl.intervals[1] != 1 | rle(diff(sampl.intervals))$values != 1) stop("Under the current implementation, sampl.intervals must be a vector of consecutive integers starting with 1.")
 
-  if(!is.null(groups)) groups <- as.character(groups)
+  if (!is.null(groups)) groups <- as.character(groups)
   if (include.all.together)  groups <- c(groups, "ALL")
   N.events <- HS.threshold <- N.hotspots <- events.in.HS <- matrix(data = NA, nrow = length(groups), ncol = length(sampl.intervals))
   rownames(N.events) <- rownames(HS.threshold) <- rownames(N.hotspots) <- rownames(events.in.HS) <- groups
   colnames(N.events) <- colnames(HS.threshold) <- colnames(N.hotspots) <- colnames(events.in.HS) <- sampl.intervals
 
-  for(g in groups) for(i in sampl.intervals) {
-    submat.name <- paste(g, ".w", i, ".g", i, sep = "")
+  for (g in groups)  for (i in sampl.intervals) {
+    #submat.name <- paste(g, ".w", i, ".g", i, sep = "")
+    submat.name <- paste(g, i, sep = ".intv")
     N.events[g, i] <- sum(hotspots.list$hotspots.maps[[submat.name]]$total.events)
     HS.threshold[g, i] <- hotspots.list$hotspots.thresholds[submat.name]
     N.hotspots[g, i] <- sum(hotspots.list$hotspots.maps[[submat.name]]$hotspot)

@@ -15,8 +15,8 @@ schemes and the baseline data.
 \tabular{ll}{
 Package: \tab DeadCanMove\cr
 Type: \tab Package\cr
-Version: \tab 0.2\cr
-Date: \tab 2015-05-8\cr
+Version: \tab 0.3\cr
+Date: \tab 2015-09-04\cr
 License: \tab GPL-3\cr
 }
 }
@@ -51,7 +51,8 @@ hc
 
 seqsubmats.hs <- vector("list", length(seqsubmats))
 for (g in 1:length(seqsubmats)) {
-  seqsubmats.hs[[g]] <- sequential.hotspots(dataset = roadkills, submats = seqsubmats[[g]], region.column = "segment", first.subsampl.col = 4)
+  seqsubmats.hs[[g]] <- sequential.hotspots(dataset = roadkills, 
+  submats = seqsubmats[[g]], region.column = "segment", first.subsampl.col = 4)
 }; rm(g)
 names(seqsubmats.hs) <- paste0(names(seqsubmats), ".hs")
 

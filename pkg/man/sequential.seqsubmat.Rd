@@ -7,7 +7,8 @@ Sequential sequential.submatrix
 Applies \code{\link{sequential.submatrix}} sequentially to a set of gap sizes, with window.size =1
 }
 \usage{
-sequential.seqsubmat(dataset, sampl.columns, group.column, gap.sizes, n.replicates.limit)
+sequential.seqsubmat(dataset, sampl.columns, group.column, gap.sizes, 
+n.replicates.limit)
 }
 \arguments{
   \item{dataset}{
@@ -44,9 +45,13 @@ A. Marcia Barbosa
 \examples{
 data(roadkills)
 
-seqsubmats <- sequential.seqsubmat(dataset = roadkills, sampl.columns = 4:ncol(roadkills), group.column = "taxon", gap.sizes = 1:4, n.replicates.limit = 7)
+seqsubmats <- sequential.seqsubmat(dataset = roadkills, 
+sampl.columns = 4:ncol(roadkills), group.column = "taxon", gap.sizes = 1:4, 
+n.replicates.limit = 7)
 
 # seqsubmats for gap 0 (baseline scenario) must be obtained separately:
-seqsubmats.baseline <- sequential.seqsubmat(dataset = roadkills, sampl.columns = 4:ncol(roadkills), group.column = 3, gap.sizes = 0, n.replicates.limit = 7)
+seqsubmats.baseline <- sequential.seqsubmat(dataset = roadkills, 
+sampl.columns = 4:ncol(roadkills), group.column = 3, gap.sizes = 0, 
+n.replicates.limit = 7)
 }
 \keyword{manip}

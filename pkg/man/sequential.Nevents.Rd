@@ -7,7 +7,8 @@ Sequential numbers of events
 Applies function \code{link{hotspots}} (with hotspots=FALSE) sequentially to a given set of submatrices
 }
 \usage{
-sequential.Nevents(dataset, submats, region.column, first.subsampl.col, estimate = FALSE)
+sequential.Nevents(dataset, submats, region.column, first.subsampl.col, 
+estimate = FALSE)
 }
 \arguments{
   \item{dataset}{

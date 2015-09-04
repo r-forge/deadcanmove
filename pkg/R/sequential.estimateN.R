@@ -1,5 +1,13 @@
 sequential.estimateN <-
-function(submats, submats.N, first.subsampl.col, region.column, persist, effic, estimators = c("korner", "huso", "erickson", "etterson"), margin = 0.01, ...) {
+function(submats, 
+         submats.N, 
+         first.subsampl.col, 
+         region.column, 
+         persist, 
+         effic, 
+         estimators = c("korner", "huso", "erickson", "etterson"), 
+         margin = 0.05, 
+         ...) {
   # v1.1 (18 Mar 2015)
   # persist, effic: named vectors of persistence and detection efficiency per group; group names must match those in the data
 
@@ -29,6 +37,7 @@ function(submats, submats.N, first.subsampl.col, region.column, persist, effic, 
 
       if ("korner" %in% estimators) {
         korner <- carcass::pkorner(s = persist[group], f = effic[group], d = gap.size + 1, n = length(first.subsampl.col : ncol((submats.N)[[i]])))  # interval = gap + 1
+        margin <- margin * korner
         korner.estimate.list <- lapply(submat.N[ , "total.events"], FUN = carcass::estimateN, p = korner, p.lower = korner - margin, p.upper = korner + margin)
         #korner.estimate.list <- korner.estimate.list[-length(korner.estimate.list)]
         # TRY MAPPLY?
@@ -39,6 +48,7 @@ function(submats, submats.N, first.subsampl.col, region.column, persist, effic, 
 
       if ("huso" %in% estimators) {
         huso <- carcass::phuso(s = persist[group], f = effic[group], d = gap.size + 1)
+        margin <- margin * huso
         huso.estimate.list <- lapply(submat.N[ , "total.events"], FUN = carcass::estimateN, p = huso, p.lower = huso  - margin, p.upper = huso + margin)
         huso.df <- data.frame(huso.estim = unlist(sapply(huso.estimate.list, "[", "estimate")), huso.upper = unlist(sapply(huso.estimate.list, "[", "upper")), huso.lower = unlist(sapply(huso.estimate.list, "[", "lower")), huso.HT = unlist(sapply(huso.estimate.list, "[", "HT.estimate")))
         submat.N.estim <- data.frame(submat.N.estim, huso.df)
@@ -46,6 +56,7 @@ function(submats, submats.N, first.subsampl.col, region.column, persist, effic, 
 
       if ("erickson" %in% estimators) {
         erickson <- carcass::perickson(s = persist[group], f = effic[group], d = gap.size + 1)
+        margin <- margin * erickson
         erickson.estimate.list <- lapply(submat.N[ , "total.events"], FUN = carcass::estimateN, p = erickson, p.lower = erickson - margin, p.upper = erickson + margin)
         erickson.df <- data.frame(erickson.estim = unlist(sapply(erickson.estimate.list, "[", "estimate")), erickson.upper = unlist(sapply(erickson.estimate.list, "[", "upper")), erickson.lower = unlist(sapply(erickson.estimate.list, "[", "lower")), erickson.HT = unlist(sapply(erickson.estimate.list, "[", "HT.estimate")))
         submat.N.estim <- data.frame(submat.N.estim, erickson.df)
@@ -53,6 +64,7 @@ function(submats, submats.N, first.subsampl.col, region.column, persist, effic, 
 
       if ("etterson" %in% estimators) {
         etterson <- carcass::ettersonEq14(s = persist[group], f = effic[group], J = J)
+        margin <- margin * etterson
         etterson.estimate.list <- lapply(submat.N[ , "total.events"], FUN = carcass::estimateN, p = etterson, p.lower = etterson - margin, p.upper = etterson + margin)
         #names(etterson.estimate.list) <- submat.N[ , "region"]
         etterson.df <- data.frame(etterson.estim = unlist(sapply(etterson.estimate.list, "[", "estimate")), etterson.upper = unlist(sapply(etterson.estimate.list, "[", "upper")), etterson.lower = unlist(sapply(etterson.estimate.list, "[", "lower")), etterson.HT = unlist(sapply(etterson.estimate.list, "[", "HT.estimate")))

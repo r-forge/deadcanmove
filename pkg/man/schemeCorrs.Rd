@@ -7,7 +7,8 @@ Scheme correlations
 Get correlation between each sampling scheme and the corresponding baseline
 }
 \usage{
-schemeCorrs(dataset, submats, submats.baseline, region.column, group.column, first.subsampl.col)
+schemeCorrs(dataset, submats, submats.baseline, region.column, group.column, 
+first.subsampl.col)
 }
 \arguments{
   \item{dataset}{

@@ -30,7 +30,7 @@ column of sampl.columns where to actually start the sampling windows. The defaul
 This function is now integrated within \code{\link{submatrix}} to provide for additional sampling scheme options.
 }
 \value{
-This function returns a vector containing the elements of \code{sampl.columns} that are included in the extracted windows; elements falling within the gaps are left out.
+When J = FALSE (the default), this function returns a vector containing the elements of \code{sampl.columns} that are included in the extracted windows; elements falling within the gaps are left out.
 }
 \references{
 }

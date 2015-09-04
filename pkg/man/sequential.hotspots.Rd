@@ -7,14 +7,16 @@ Calculate roadkill hotspots for a series of (sub)sampling datasets
 This function applies \code{\link{hotspots}} sequencially to a given set of submatrices to identify the hotspot regions in each dataset, using an adaptation of the method of Malo et al. (2004).
 }
 \usage{
-sequential.hotspots(dataset, submats, region.column, first.subsampl.col, confidence = 0.95)
+sequential.hotspots(dataset, submats, region.column, first.subsampl.col, 
+confidence = 0.95)
 }
 \arguments{
   \item{dataset}{
 name of the matrix or dataframe containing the complete data
 }
   \item{submats}{
-a list of the submatrices for which to calculate the hotspots (result of the \code{\link{sequential.submatrix}} function)
+a list of the submatrices for which to calculate the hotspots (result of the 
+\code{\link{sequential.submatrix}} function)
 }
   \item{region.column}{
 name or index number of the column containing the regions (road segments, sites) to classify as hotspots or non-hotspots

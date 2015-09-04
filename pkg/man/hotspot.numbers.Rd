@@ -44,7 +44,7 @@ A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills,
-sampl.columns = 4:ncol(roadkills), window.size = 1, gap.size = 0:2,
+sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:3,
 group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
 keep.nonsampl.columns = TRUE, n.subsampl.columns = 120)
 

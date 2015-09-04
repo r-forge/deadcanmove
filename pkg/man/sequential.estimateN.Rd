@@ -9,7 +9,7 @@ This function estimates the actual numbers of animal casualties given the observ
 \usage{
 sequential.estimateN(submats, submats.N, first.subsampl.col, region.column,
 persist, effic, estimators = c("korner", "huso", "erickson", "etterson"),
-margin = 0.01, ...)
+margin = 0.05, ...)
 }
 \arguments{
   \item{submats}{
@@ -34,7 +34,7 @@ named vector of detection efficiency per group; group names must match those in 
 character vector of the estimator(s) to use. The default is all estimators available.
 }
   \item{margin}{
-numeric value to subtract from and add to the estimator(s) to get p.lower and p.upper, respectively, when using function \code{estimateN} in package \pkg{carcass}
+proportion of each estimator to subtract from and add to it in order to get p.lower and p.upper, respectively, when using function \code{estimateN} in package \pkg{carcass}
 }
   \item{\dots}{
 currently not in use
