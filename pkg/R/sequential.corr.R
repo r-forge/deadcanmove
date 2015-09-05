@@ -4,9 +4,9 @@ function(hotspots.list, hotspots.thresholds, comp.method = "Phi", baseline.inter
   #if(!(comp.method %in% binary.comp.methods))
     #stop("Invalid 'comp.method'; type 'binary.comp.methods' for available options.")
 
-  hotspots.exclude <- hotspots.thresholds[rowSums(is.na(hotspots.thresholds)) == ncol(hotspots.thresholds), ]
+  hotspots.exclude <- hotspots.thresholds[rowSums(is.na(hotspots.thresholds)) == ncol(hotspots.thresholds), , drop = FALSE]
   excluded.groups <- paste(rownames(hotspots.exclude), " ")
-  if(messages) message(length(excluded.groups), " group(s) excluded for not fulfilling thresholds: ", excluded.groups)
+  if (messages) message(length(excluded.groups), " group(s) excluded for not fulfilling thresholds: ", excluded.groups)
 
   hotspots.thresholds <- hotspots.thresholds[rowSums(is.na(hotspots.thresholds)) != ncol(hotspots.thresholds), ]  # excludes groups with all NA in thresholds (= groups without min.total.events)
   groups <- rownames(hotspots.thresholds)

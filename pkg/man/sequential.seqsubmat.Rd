@@ -49,9 +49,13 @@ seqsubmats <- sequential.seqsubmat(dataset = roadkills,
 sampl.columns = 4:ncol(roadkills), group.column = "taxon", gap.sizes = 1:4, 
 n.replicates.limit = 7)
 
+names(seqsubmats)
+
 # seqsubmats for gap 0 (baseline scenario) must be obtained separately:
 seqsubmats.baseline <- sequential.seqsubmat(dataset = roadkills, 
 sampl.columns = 4:ncol(roadkills), group.column = 3, gap.sizes = 0, 
 n.replicates.limit = 7)
+
+names(seqsubmats.baseline)
 }
 \keyword{manip}
