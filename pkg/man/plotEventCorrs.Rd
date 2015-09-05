@@ -34,20 +34,22 @@ A. Marcia Barbosa
 data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills,
-sampl.columns = 4:ncol(roadkills), window.sizes = 1, gap.sizes = 0:2,
+sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:3,
 group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
 keep.nonsampl.columns = TRUE, n.subsampl.columns = 80)
 
-hsl <- sequential.hotspots(dataset = roadkills, submats = submats,
-region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
+names(submats)
 
-hsn <- hotspot.numbers(hotspots.list = hsl, sampl.intervals = 1:3,
+(hsl <- sequential.hotspots(dataset = roadkills, submats = submats,
+region.column = "segment", first.subsampl.col = 4, confidence = 0.95))
+
+(hsn <- hotspot.numbers(hotspots.list = hsl, sampl.intervals = 1:3,
 groups = as.character(unique(roadkills$taxon)), include.all.together = TRUE,
-min.total.events = 0, min.hotspot.threshold = 2)
+min.total.events = 0, min.hotspot.threshold = 2))
 
-seqcorr <- sequential.corr(hotspots.list = hsl,
+(seqcorr <- sequential.corr(hotspots.list = hsl,
 hotspots.thresholds = hsn$HS.threshold, comp.method = "Phi",
-baseline.gap = 0, messages = "TRUE")
+baseline.interval = 1, messages = "TRUE"))
 
 plotEventCorrs(event.corrs = seqcorr, sep.plots = FALSE, ylim = c(0, 1),
 pch = 20)

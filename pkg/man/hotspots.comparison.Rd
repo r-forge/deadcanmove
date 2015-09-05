@@ -81,5 +81,7 @@ sampl.intervals = 1:5, region.column = "segment", group.column = "taxon",
 include.all.together = TRUE, confidence = 0.95, min.total.events = 80,
 min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE,
 omit.baseline.interval = TRUE, ylim = c(0, 1))
+
+hc
 }
 \keyword{}

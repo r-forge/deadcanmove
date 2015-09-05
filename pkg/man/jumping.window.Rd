@@ -54,8 +54,5 @@ w3g5 <- jumping.window(4:ncol(roadkills), window.size = 3, gap.size = 5)
 
 w3g5
 
-sm <- submatrix(dataset = roadkills, sampl.columns = w3g5, sampl.interval = 1,
-group.column = "taxon", group.names = NULL, remove.zeros = TRUE,
-keep.nonsampl.columns = TRUE)
 }
 \keyword{}

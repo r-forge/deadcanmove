@@ -4,7 +4,7 @@
 Sequential numbers of events
 }
 \description{
-Applies function \code{link{hotspots}} (with hotspots=FALSE) sequentially to a given set of submatrices
+Applies function \code{\link{hotspots}} (with hotspots=FALSE) sequentially to a given set of submatrices
 }
 \usage{
 sequential.Nevents(dataset, submats, region.column, first.subsampl.col, 
@@ -38,7 +38,7 @@ A. Marcia Barbosa
 \note{
 }
 \seealso{
-\code{link{hotspots}}, \code{link{sequential.hotspots}}
+\code{\link{hotspots}}, \code{\link{sequential.hotspots}}
 }
 \examples{
 }
