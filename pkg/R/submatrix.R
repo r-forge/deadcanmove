@@ -2,6 +2,7 @@ submatrix <-
 function(dataset, sampl.columns, sampl.interval = NULL, window.size = NULL, gap.size = NULL, start.column = 1, group.column = NULL, group.names = NULL, remove.zeros = TRUE, keep.nonsampl.columns = TRUE) {
 
   if (!is.null(sampl.interval)) {
+    if (!is.null(window.size) | !is.null(gap.size))  message("NOTE: 'window.size' and 'gap.size' ignored in favour of 'sampl.interval'.")
     subsampl.columns <- seq(from = sampl.columns[1], to = sampl.columns[length(sampl.columns)], by = sampl.interval)
   } else {
     if (is.null(window.size) & is.null(gap.size))  stop ("You must provide either a sampl.interval, or both window.size and gap.size.")
@@ -14,16 +15,16 @@ function(dataset, sampl.columns, sampl.interval = NULL, window.size = NULL, gap.
   nonsampl.columns <- dataset[ , !(data.column.names %in% data.column.names[sampl.columns])]
   nonsampl.column.names <- names(nonsampl.columns)
 
-  if(!is.null(group.names)) {
-    if(is.null(group.column)) stop("if you want those particular group.names to be extracted, you must specify the group.column which contains them")
+  if (!is.null(group.names)) {
+    if (is.null(group.column)) stop("if you want those particular group.names to be extracted, you must specify the group.column which contains them")
     dataset <- dataset[dataset[ , group.column] %in% group.names, ]
   }  # end if !null group column
 
-  if(!is.null(group.column) & is.null(group.names))
+  if (!is.null(group.column) & is.null(group.names))
     message("group.names not specified; extracting subsampling matrices
             for all rows")
 
-  if(remove.zeros & is.numeric(dataset[ , subsampl.columns])) {
+  if (remove.zeros & is.numeric(dataset[ , subsampl.columns])) {
     dataset <- dataset[which(rowSums(dataset[ , subsampl.columns]) > 0), ]
   }  # end if remove zeros
 

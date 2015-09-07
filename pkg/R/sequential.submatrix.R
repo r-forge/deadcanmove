@@ -12,18 +12,20 @@ function(dataset, sampl.columns, sampl.intervals = NULL, window.sizes = NULL, ga
   submats <- NULL
   
   if (!is.null(sampl.intervals)) {
-    for (i in sampl.intervals)  for (g in groups) {
-      submat <- submatrix(dataset = dataset, sampl.columns = sampl.columns, sampl.interval = i, group.column = group.column, group.names = g, remove.zeros = remove.zeros, keep.nonsampl.columns = keep.nonsampl.columns)
-      submat.name <- paste(g, i, sep = ".intv")
+    if (!is.null(window.sizes) | !is.null(gap.sizes))  message("NOTE: 'window.sizes' and 'gap.sizes' ignored in favour of 'sampl.intervals'.")
+    
+    for (intv in sampl.intervals)  for (grp in groups) {
+      submat <- submatrix(dataset = dataset, sampl.columns = sampl.columns, sampl.interval = intv, group.column = group.column, group.names = grp, remove.zeros = remove.zeros, keep.nonsampl.columns = keep.nonsampl.columns)
+      submat.name <- paste(grp, intv, sep = ".intv")
       submats[[submat.name]] <- submat
-    }; rm(i, g)
+    }; rm(intv, grp)
 
     if (include.all.together) {
-      for (i in sampl.intervals) {
-        submat <- submatrix(dataset = dataset, sampl.columns = sampl.columns, sampl.interval = i, keep.nonsampl.columns = keep.nonsampl.columns)
-        submat.name <- paste("ALL", i, sep = ".intv")
+      for (intv in sampl.intervals) {
+        submat <- submatrix(dataset = dataset, sampl.columns = sampl.columns, sampl.interval = intv, keep.nonsampl.columns = keep.nonsampl.columns)
+        submat.name <- paste("ALL", intv, sep = ".intv")
         submats[[submat.name]] <- submat
-      }; rm(i)
+      }; rm(intv)
     }  # end if include.all.together
 
     return(invisible(submats))
@@ -32,14 +34,14 @@ function(dataset, sampl.columns, sampl.intervals = NULL, window.sizes = NULL, ga
   # now if NULL sampl.intervals:
   if (is.null(window.sizes) | is.null(gap.sizes))  stop ("You must provide either sampl.intervals, or both window.sizes and gap.sizes.")
 
-  if (is.null(n.subsampl.columns))  n.subsampl.columns <- length(sampl.columns)
-  # FIX!!
+  if (is.null(n.subsampl.columns))
+    n.subsampl.columns <- length(sampl.columns)  # FIX!!
   
   if (all.combinations) {
     for (w in window.sizes) for (gap in gap.sizes) for (s in start.columns) for (grp in groups) {
       submat <- submatrix(dataset = dataset, sampl.columns = sampl.columns, window.size = w, gap.size = gap, start.column = s, group.column = group.column, group.names = grp, remove.zeros = remove.zeros, keep.nonsampl.columns = keep.nonsampl.columns)
       submat <- submat[ , 1:(min(sampl.columns) + n.subsampl.columns - 1)]
-      submat.name <- paste(grp, ".w", w, ".g", gap, ".s", s, sep = "")
+      submat.name <- paste0(grp, ".w", w, ".g", gap, ".s", s)
       submats[[submat.name]] <- submat
     }; rm(w, gap, s, grp)
 
@@ -47,7 +49,7 @@ function(dataset, sampl.columns, sampl.intervals = NULL, window.sizes = NULL, ga
       for (w in window.sizes) for (gap in gap.sizes) for (s in start.columns) {
         submat <- submatrix(dataset = dataset, sampl.columns = sampl.columns, window.size = w, gap.size = gap, start.column = s, keep.nonsampl.columns = keep.nonsampl.columns)
         submat <- submat[ , 1:(min(sampl.columns) + n.subsampl.columns - 1)]
-        submat.name <- paste("ALL.w", w, ".g", gap, ".s", s, sep = "")
+        submat.name <- paste0("ALL.w", w, ".g", gap, ".s", s)
         submats[[submat.name]] <- submat
       }; rm(w, gap, s)
     }  # end if include.all.together
@@ -66,10 +68,9 @@ function(dataset, sampl.columns, sampl.intervals = NULL, window.sizes = NULL, ga
                           remove.zeros = remove.zeros,
                           keep.nonsampl.columns = keep.nonsampl.columns)
       submat <- submat[ , 1:(min(sampl.columns) + n.subsampl.columns - 1)]
-      submat.name <- paste(grp, ".w", sampl.schemes[i, 1], ".g", sampl.schemes[i, 2],
-                           sep = "")
+      submat.name <- paste0(grp, ".w", sampl.schemes[i, 1], ".g", sampl.schemes[i, 2])
       submats[[submat.name]] <- submat
-    }; rm(i, grp)
+    }; rm(i, grp)  # VER: e aqui nao tem 's'??
 
     if (include.all.together) {
       for (i in 1:nrow(sampl.schemes)) {
@@ -78,8 +79,7 @@ function(dataset, sampl.columns, sampl.intervals = NULL, window.sizes = NULL, ga
                             gap.size = sampl.schemes[i, 2],
                             keep.nonsampl.columns = keep.nonsampl.columns)
         submat <- submat[ , 1:(min(sampl.columns) + n.subsampl.columns - 1)]
-        submat.name <- paste("ALL.w", sampl.schemes[i, 1], ".g", sampl.schemes[i, 2],
-                             sep = "")
+        submat.name <- paste0("ALL.w", sampl.schemes[i, 1], ".g", sampl.schemes[i, 2])
         submats[[submat.name]] <- submat
       }; rm(i)
     }  # end if include.all.together

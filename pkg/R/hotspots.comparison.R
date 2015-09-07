@@ -1,20 +1,17 @@
-hotspots.comparison <-
-function(dataset, sampl.columns, sampl.intervals, region.column, group.column, include.all.together = TRUE, confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ...) {
-  # WRAPPER FOR THE PREVIOUS FUNCTIONS (one function to rule them all)
-  # dataset: name of the matrix or dataframe to analyze
-  # sampl.columns: index numbers of the columns containing the (daily) sampling data, e.g. 1:180; must be consecutive and start with 1
-  # sampl.intervals: intervals at which to extract sampling data, e.g. 1:30
-  # region.column: name or index number of the column containing the regions (road sectors, sites) to classify as hotspots or non-hotspots
-  # group.column: name or index number of the column containing the taxa or groups to analyse separately, e.g. 3 or "Family"; if NULL, all records will be used together
-  # include.all.together: logical, whether to get subsampling matrices also for the complete data (including all groups together)
-  # confidence: confidence threshold to consider hotspots
-  # min.total.events: minimum total number of events to calculate hotspots for a group
-  # min.hotspot.threshold: minimum number of events for a region to be considered a hotspot
-  # comp.method: the method with which to compare the hotspots obtained with increasing sampl.intervals with those of the baseline scenario; type 'binary.comp.methods()' for available options
-  # plot: logical, whether to plot the correlations between subsamples and baseline for each group (may cause function to fail if sep.plots = FALSE and figure margins are too large for the number of resulting plots)
-  # sep.plots: logical, whether to present the plots in separate windows rather than all in the same window
-  # omit.baseline.interval: logical, whether to omit the first column (correlation of baseline hotspots with themselves) from calculations and results
-  # ...: additional arguments to pass to the "plot" function
+hotspots.comparison <- function(dataset, 
+                                sampl.columns, 
+                                sampl.intervals, 
+                                region.column, 
+                                group.column, 
+                                include.all.together = TRUE, 
+                                confidence = 0.95, 
+                                min.total.events = 80, 
+                                min.hotspot.threshold = 2, 
+                                comp.method = "Phi", 
+                                plot = TRUE, 
+                                sep.plots = FALSE, 
+                                omit.baseline.interval = TRUE, 
+                                ...) {
   
   if (!is.integer(sampl.intervals) | sampl.intervals[1] != 1 | rle(diff(sampl.intervals))$values != 1) stop("Under the current implementation, sampl.intervals must be a vector of consecutive integers starting with 1.")
   

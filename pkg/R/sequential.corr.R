@@ -1,6 +1,8 @@
 sequential.corr <-
 function(hotspots.list, hotspots.thresholds, comp.method = "Phi", baseline.interval = 1, baseline.gap = 0, messages = "TRUE") {
-
+  
+  # NOTE: works only for hotspots of submats made with sampl.interval (not window & gap)!
+  
   #if(!(comp.method %in% binary.comp.methods))
     #stop("Invalid 'comp.method'; type 'binary.comp.methods' for available options.")
 
@@ -16,14 +18,14 @@ function(hotspots.list, hotspots.thresholds, comp.method = "Phi", baseline.inter
   rownames(event.corrs) <- groups
   colnames(event.corrs) <- sampl.intervals
 
-  for(g in groups) for(i in sampl.intervals) {
-    #submat.name <- paste(g, ".w", i, ".g", i, sep = "")
-    #baseline.name <- paste(g, ".w", baseline.gap, ".g", baseline.gap, sep = "")
-    submat.name <- paste(g, i, sep = ".intv")
-    baseline.name <- paste(g, baseline.interval, sep = ".intv")
+  for (grp in groups)  for (intv in sampl.intervals) {
+    #submat.name <- paste(grp, ".w", i, ".g", i, sep = "")
+    #baseline.name <- paste(grp, ".w", baseline.gap, ".g", baseline.gap, sep = "")
+    submat.name <- paste(grp, intv, sep = ".intv")
+    baseline.name <- paste(grp, baseline.interval, sep = ".intv")
     submat.hs <- hotspots.list$hotspots.maps[[submat.name]]$hotspot
     baseline.hs <- hotspots.list$hotspots.maps[[baseline.name]]$hotspot
-    event.corrs[g, i] <- binary.comparison(baseline.hs, submat.hs, method = comp.method)
+    event.corrs[grp, intv] <- binary.comparison(baseline.hs, submat.hs, method = comp.method)
     event.corrs[is.na(hotspots.thresholds)] <- NA
   }  # end for g for i
 
