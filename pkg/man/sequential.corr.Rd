@@ -30,6 +30,7 @@ A matrix of correlations (or whatever index was defined in \code{method}) betwee
 A. Marcia Barbosa
 }
 \note{
+This function currently works only for hotspots of submats created with 'sampl.interval', not 'window.size' and 'gap.size'. See \code{\link{submatrix}}, \code{\link{sequential.submatrix}}, and check that your names(hotspots.list[[1]]) are something like "group.intv1", not "group.w1.g2.s1".
 }
 \seealso{
 \code{\link{binary.comparison}}
@@ -38,7 +39,7 @@ A. Marcia Barbosa
 data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills,
-sampl.columns = 4:ncol(roadkills), window.size = 1, gap.size = c(0, 1, 2),
+sampl.columns = 4:ncol(roadkills), sampl.interval = 1:3,
 group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
 keep.nonsampl.columns = TRUE, n.subsampl.columns = 120)
 

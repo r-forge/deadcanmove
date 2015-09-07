@@ -16,13 +16,14 @@ function(hotspots.list, sampl.intervals, groups, include.all.together = TRUE, mi
   #else if (length(submat.name.split[[1]]) == 3) submat.name <- paste0(g, ".w", i, ".g", i)
   #else if (length(submat.name.split[[1]]) == 4) submat.name <- paste0(g, ".w", i, ".g", i, ".s", i)
   
-  for (g in groups)  for (i in sampl.intervals) {
+  for (grp in groups)  for (intv in sampl.intervals) {
     #submat.name <- paste(g, ".w", i, ".g", i, sep = "")
-    submat.name <- paste(g, i, sep = ".intv")
-    N.events[g, i] <- sum(hotspots.list$hotspots.maps[[submat.name]]$total.events)
-    HS.threshold[g, i] <- hotspots.list$hotspots.thresholds[submat.name]
-    N.hotspots[g, i] <- sum(hotspots.list$hotspots.maps[[submat.name]]$hotspot)
-    events.in.HS[g, i] <- sum(hotspots.list$hotspots.maps[[submat.name]]$total.events [hotspots.list$hotspots.maps[[submat.name]]$hotspot == 1])
+    submat.name <- paste(grp, intv, sep = ".intv")
+    if (!(submat.name) %in% names(hotspots.list$hotspots.maps))  stop ("Currently, this function works only for hotspots resulting from submats created with 'sampl.interval', not 'window.size' and 'gap.size' - see Note in help(hotspot.numbers)")
+    N.events[grp, intv] <- sum(hotspots.list$hotspots.maps[[submat.name]]$total.events)
+    HS.threshold[grp, intv] <- hotspots.list$hotspots.thresholds[submat.name]
+    N.hotspots[grp, intv] <- sum(hotspots.list$hotspots.maps[[submat.name]]$hotspot)
+    events.in.HS[grp, intv] <- sum(hotspots.list$hotspots.maps[[submat.name]]$total.events [hotspots.list$hotspots.maps[[submat.name]]$hotspot == 1])
   }
 
   n.below.min <- N.events[ , 1] < min.total.events

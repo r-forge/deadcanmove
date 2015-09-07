@@ -23,6 +23,7 @@ function(submats,
     df.name <- names(submats.N)[i]
     message("\nEstimating matrix ", i, " of ", length(submats.N), " (", df.name, ")...")
     df.name.split <- strsplit(df.name, split = "\\.")
+    if (length(df.name.split[[1]]) < 3) stop ("Currently, this function works only for 'submats' created with 'window.size' and 'gap.size', not 'sampl.interval' - see Note in help(sequential.estimateN)")
     group <- df.name.split[[1]][1]
     window.size <- as.integer(substr(df.name.split[[1]][2], start = 2, stop = nchar(df.name.split[[1]][2])))
     gap.size <- as.integer(substr(df.name.split[[1]][3], start = 2, stop = nchar(df.name.split[[1]][3])))

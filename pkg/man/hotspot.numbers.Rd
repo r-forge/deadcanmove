@@ -36,6 +36,7 @@ A list of the following matrices:
 A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 }
 \note{
+This function currently works only for hotspots of submats created with 'sampl.interval', not 'window.size' and 'gap.size'. See \code{\link{submatrix}}, \code{\link{sequential.submatrix}}, and check that your names(hotspots.list[[1]]) are something like "group.intv1", not "group.w1.g2.s1".
 }
 \seealso{
 \code{\link{hotspots}}, \code{\link{sequential.hotspots}}

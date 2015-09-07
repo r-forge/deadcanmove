@@ -51,6 +51,7 @@ This function returns a list.
 A. Marcia Barbosa, J. Tiago Marques, Sara Santos
 }
 \note{
+This function currently works only for \code{submats} created with 'window.size' and 'gap.size', not with 'sampl.interval'. See \code{\link{submatrix}}, \code{\link{sequential.submatrix}}, and check that your names(submats) are something like "group.w1.g2.s1" and not "group.intv1".
 }
 \seealso{
 function \code{estimateN} in package \pkg{carcass}
