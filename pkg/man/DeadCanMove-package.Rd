@@ -6,17 +6,14 @@
 Assess how spatial roadkill patterns change with temporal sampling scheme
 }
 \description{
-From a baseline data frame of dead individuals recorded daily at different
-road stretches, simulate varying sub-sampling schemes, calculate roadkill
-hotspots based on each scheme, and compare hotspot patterns between sampling
-schemes and the baseline data.
+From a baseline data frame of dead individuals recorded daily at different road stretches, simulate varying sub-sampling schemes, calculate and compare roadkill patterns and hotspots based on each sampling scheme.
 }
 \details{
 \tabular{ll}{
 Package: \tab DeadCanMove\cr
 Type: \tab Package\cr
-Version: \tab 0.3\cr
-Date: \tab 2015-09-04\cr
+Version: \tab 0.4\cr
+Date: \tab 2016-04-22\cr
 License: \tab GPL-3\cr
 }
 }
