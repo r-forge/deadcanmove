@@ -7,8 +7,8 @@ Scheme correlations
 Get correlation between each sampling scheme and the corresponding baseline
 }
 \usage{
-schemeCorrs(dataset, submats, submats.baseline, region.column, group.column, 
-first.subsampl.col)
+schemeCorrs(dataset, submats, submats.baseline, region.column, 
+group.column, first.subsampl.col)
 }
 \arguments{
   \item{dataset}{
@@ -30,21 +30,12 @@ name or index number of the column containing the taxonomic groups
 index number of the first column containing subsampling data
 }
 }
-\details{
-}
 \value{
 This function returns a list of corrs.tables.
-}
-\references{
 }
 \author{
 A. Marcia Barbosa
 }
-\note{
-}
 \seealso{
 \code{\link{getBoxplots}}
 }
-\examples{
-}
-\keyword{}

@@ -7,7 +7,8 @@ Jumping window
 This function extracts a moving (a.k.a. running, rolling, sliding) window but with no overlap between windows and with the option for gaps between windows.
 }
 \usage{
-jumping.window(sampl.columns, window.size, gap.size, start.column = 1, J = FALSE)
+jumping.window(sampl.columns, window.size, gap.size, 
+start.column = 1, J = FALSE)
 }
 \arguments{
   \item{sampl.columns}{
@@ -32,14 +33,8 @@ This function is now integrated within \code{\link{submatrix}} to provide for ad
 \value{
 When J = FALSE (the default), this function returns a vector containing the elements of \code{sampl.columns} that are included in the extracted windows; elements falling within the gaps are left out.
 }
-\references{
-}
 \author{
 A. Marcia Barbosa, J. Tiago Marques
-}
-\note{
-}
-\seealso{
 }
 \examples{
 data(roadkills)
@@ -50,9 +45,9 @@ jumping.window(4:ncol(roadkills), window.size = 1, gap.size = 0)
 
 jumping.window(4:ncol(roadkills), window.size = 1, gap.size = 1)
 
-w3g5 <- jumping.window(4:ncol(roadkills), window.size = 3, gap.size = 5)
+w3g5 <- jumping.window(4:ncol(roadkills), window.size = 3, 
+gap.size = 5)
 
 w3g5
 
 }
-\keyword{}

@@ -7,7 +7,7 @@ Sequential sequential.submatrix
 Applies \code{\link{sequential.submatrix}} sequentially to a set of gap sizes, with window.size =1
 }
 \usage{
-sequential.seqsubmat(dataset, sampl.columns, group.column, gap.sizes, 
+sequential.seqsubmat(dataset, sampl.columns, group.column, gap.sizes,
 n.replicates.limit)
 }
 \arguments{
@@ -27,17 +27,11 @@ integer vector of the size(s) of the gaps between sampling days. Must be either 
 Maximum number of replicates allowed
 }
 }
-\details{
-}
 \value{
 This function returns a list of submatrices
 }
-\references{
-}
 \author{
 A. Marcia Barbosa
-}
-\note{
 }
 \seealso{
 \code{\link{sequential.submatrix}}

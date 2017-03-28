@@ -6,7 +6,7 @@ function(submats, submats.N, first.subsampl.col, region.column, persist, effic, 
 
   if (!all(estimators %in% c("korner", "huso", "erickson", "etterson"))) stop ("Invalid estimator. Possible choices are (case-sensitive) 'korner', 'huso', 'erickson' and 'etterson')")
 
-  require(carcass)
+  requireNamespace("carcass")
   results <- vector(mode = "list", length = length(submats.N))
   names(results) <- names(submats.N)
 

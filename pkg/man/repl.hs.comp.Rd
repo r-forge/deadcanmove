@@ -7,8 +7,9 @@ Replicate hotspot comparison
 This function calculates hotspot correlation, loss, gain or balance for the different replicates per sampling scheme and taxonomic group.
 }
 \usage{
-repl.hs.comp(seqsubmats.hs, hs.baseline, method = "Phi", stats = TRUE, 
-plot = TRUE, plot.mean = TRUE, ylim = NULL, horiz.line = NA)
+repl.hs.comp(seqsubmats.hs, hs.baseline, method = "Phi", 
+stats = TRUE, plot = TRUE, plot.mean = TRUE, ylim = NULL, 
+horiz.line = NA)
 }
 \arguments{
   \item{seqsubmats.hs}{
@@ -36,17 +37,11 @@ limits for the y axis. The default is NULL for automatic limits, but you may wan
 optionally, a numeric value indicating the y axis value for a horizontal threshold line to be drawn.
 }
 }
-\details{
-}
 \value{
-A list.
-}
-\references{
+This function returns a list.
 }
 \author{
 A. Marcia Barbosa
-}
-\note{
 }
 \seealso{
 \code{\link{binary.comparison}}
@@ -58,7 +53,5 @@ hs.baseline = hs.baseline, method = "Phi")
 
 replicate.gains <- repl.hs.comp(seqsubmats.hs = seqsubmats.hs, 
 hs.baseline = hs.baseline, method = "gain")
-
 }
 }
-\keyword{}

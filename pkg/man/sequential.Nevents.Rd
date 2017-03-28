@@ -7,8 +7,8 @@ Sequential numbers of events
 Applies function \code{\link{hotspots}} (with hotspots=FALSE) sequentially to a given set of submatrices
 }
 \usage{
-sequential.Nevents(dataset, submats, region.column, first.subsampl.col, 
-estimate = FALSE)
+sequential.Nevents(dataset, submats, region.column, 
+first.subsampl.col, estimate = FALSE)
 }
 \arguments{
   \item{dataset}{
@@ -26,20 +26,9 @@ index number of the first column containing subsampling data
 logical, whether to add estimates from package \pkg{carcass}
 }
 }
-\details{
-}
-\value{
-}
-\references{
-}
 \author{
 A. Marcia Barbosa
-}
-\note{
 }
 \seealso{
 \code{\link{hotspots}}, \code{\link{sequential.hotspots}}
 }
-\examples{
-}
-\keyword{}

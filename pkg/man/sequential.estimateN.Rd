@@ -7,9 +7,9 @@ Sequential estimate N
 This function estimates the actual numbers of animal casualties given the observed numbers and a set of estimators, sequentially for all given submats. Requires package \pkg{carcass}.
 }
 \usage{
-sequential.estimateN(submats, submats.N, first.subsampl.col, region.column,
-persist, effic, estimators = c("korner", "huso", "erickson", "etterson"),
-margin = 0.05, ...)
+sequential.estimateN(submats, submats.N, first.subsampl.col, 
+region.column, persist, effic, estimators = c("korner", "huso", 
+"erickson", "etterson"), margin = 0.05, ...)
 }
 \arguments{
   \item{submats}{
@@ -40,12 +40,8 @@ proportion of each estimator to subtract from and add to it in order to get p.lo
 currently not in use
 }
 }
-\details{
-}
 \value{
 This function returns a list.
-}
-\references{
 }
 \author{
 A. Marcia Barbosa, J. Tiago Marques, Sara Santos
@@ -56,6 +52,3 @@ This function currently works only for \code{submats} created with 'window.size'
 \seealso{
 function \code{estimateN} in package \pkg{carcass}
 }
-\examples{
-}
-\keyword{}

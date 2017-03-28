@@ -17,20 +17,11 @@ a list of corrs.tables given by function \code{\link{schemeCorrs}}
 additional arguments for the \code{\link{boxplot}} function (e.g. ylim = c(0, 1), las = 2, main = as.character(bquote(corrs.list)))
 }
 }
-\details{
-}
 \value{
 Box plots
-}
-\references{
 }
 \author{
 A. Marcia Barbosa
 }
-\note{
-}
 \seealso{
 \code{\link{schemeCorrs}}}
-\examples{
-}
-\keyword{}

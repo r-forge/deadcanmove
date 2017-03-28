@@ -13,7 +13,7 @@ function(submats,
   # NOTE: works only for submats created with window and gap size (not sampl.interval)!
 
   if (!requireNamespace("carcass", quietly = TRUE))  return (message("Package 'carcass' (required by this function) not available - please install it first."))
-  else require(carcass)
+  else requireNamespace("carcass")
   if(!all(estimators %in% c("korner", "huso", "erickson", "etterson")))  stop ("'estimators' must be one or more of (case-sensitive) 'korner', 'huso', 'erickson' and 'etterson'.")
 
   results <- vector(mode = "list", length = length(submats.N))

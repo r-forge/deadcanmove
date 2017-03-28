@@ -3,7 +3,7 @@
 \alias{DeadCanMove}
 \docType{package}
 \title{
-Assess how spatial roadkill patterns change with temporal sampling scheme
+Assess How Spatial Roadkill Patterns Change with Temporal Sampling Scheme
 }
 \description{
 From a baseline data frame of dead individuals recorded daily at different road stretches, simulate varying sub-sampling schemes, calculate and compare roadkill patterns and hotspots based on each sampling scheme.
@@ -12,8 +12,8 @@ From a baseline data frame of dead individuals recorded daily at different road 
 \tabular{ll}{
 Package: \tab DeadCanMove\cr
 Type: \tab Package\cr
-Version: \tab 0.4\cr
-Date: \tab 2016-04-22\cr
+Version: \tab 0.5\cr
+Date: \tab 2017-03-28\cr
 License: \tab GPL-3\cr
 }
 }
@@ -29,14 +29,16 @@ Mira A. (2015) Sampling effects on the identification of roadkill hotspots: impl
 }
 \keyword{ package }
 \seealso{
+\pkg{carcass}
 }
 \examples{
 data(roadkills)
 
 hc <- hotspots.comparison(dataset = roadkills,
 sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:5,
-region.column = "segment", group.column = "taxon", include.all.together = TRUE,
-confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2,
+region.column = "segment", group.column = "taxon", 
+include.all.together = TRUE, confidence = 0.95, 
+min.total.events = 80, min.hotspot.threshold = 2,
 comp.method = "Phi", plot = TRUE, sep.plots = FALSE,
 omit.baseline.interval = TRUE, ylim = c(0, 1))
 

@@ -1,14 +1,20 @@
-hotspots <-
-function(dataset, submat = NULL, region.column, subsampl.columns, hotspots = TRUE, confidence = 0.95, min.total.events = 0, min.hotspot.threshold = 2) {
+hotspots <- function(dataset, submat = NULL, region.column, subsampl.columns = NULL, n.events.column = NULL, hotspots = TRUE, confidence = 0.95, min.total.events = 0, min.hotspot.threshold = 2) {
 
-  if(is.null(submat))  submat <- dataset
+  if (is.null(submat))  submat <- dataset
 
-  total.events.by.row <- rowSums(submat[ , subsampl.columns])
-  count <- function(x) { sum(x > 0, na.rm = TRUE) }
-  total.events.by.region <- as.data.frame(tapply(total.events.by.row, submat[ , region.column], FUN = count))
+  if (!is.null(n.events.column))  total.events.by.row <- submat[ , n.events.column]
+  else if (!is.null(subsampl.columns))  total.events.by.row <- rowSums(submat[ , subsampl.columns])
+  else stop ("You must provide either 'subsampl.columns' or 'n.events.column'.")
 
-  total.events.by.region$region <- as.integer(row.names(total.events.by.region))
-  colnames(total.events.by.region) <- c("total.events", "region")
+  if (!is.null(n.events.column))  {
+    total.events.by.region <- data.frame(total.events = dataset[,n.events.column], region=dataset[,region.column] )
+
+    } else {
+    count <- function(x) { sum(x > 0, na.rm = TRUE) }
+    total.events.by.region <- as.data.frame(tapply(total.events.by.row, submat[ , region.column], FUN = count))
+    total.events.by.region$region <- as.integer(row.names(total.events.by.region))
+    colnames(total.events.by.region) <- c("total.events", "region")
+  }
 
   dataset.regions <- unique(dataset[ , region.column])
   hotspots.map <- data.frame(dataset.regions)

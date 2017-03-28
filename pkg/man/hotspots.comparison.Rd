@@ -9,10 +9,11 @@ to rule them all). You'll probably only need to use this one, which in turn
 calls each of the other functions and does all the calculations in one step.
 }
 \usage{
-hotspots.comparison(dataset, sampl.columns, sampl.intervals, region.column,
-group.column, include.all.together = TRUE, confidence = 0.95,
-min.total.events = 80, min.hotspot.threshold = 2, comp.method = "Phi",
-plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ...)
+hotspots.comparison(dataset, sampl.columns, sampl.intervals, 
+region.column, group.column, include.all.together = TRUE, 
+confidence = 0.95, min.total.events = 80, min.hotspot.threshold = 2, 
+comp.method = "Phi", plot = TRUE, sep.plots = FALSE, 
+omit.baseline.interval = TRUE, ...)
 }
 \arguments{
   \item{dataset}{name of the matrix or dataframe to analyze}
@@ -46,8 +47,6 @@ plot = TRUE, sep.plots = FALSE, omit.baseline.interval = TRUE, ...)
   results}
   \item{\dots}{additional arguments to pass to the \code{\link{plot}} function}
 }
-\details{
-}
 \value{
 A list with 9 elements:
 \item{hotspots.list}{}
@@ -68,20 +67,19 @@ using predictive models? J. Appl. Ecol. 41, 701-710
 \author{
 A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 }
-\note{
-}
 \seealso{
 \code{\link{hotspots}}
 }
 \examples{
 data(roadkills)
 
-hc <- hotspots.comparison(dataset = roadkills, sampl.columns = 4:ncol(roadkills),
-sampl.intervals = 1:5, region.column = "segment", group.column = "taxon",
-include.all.together = TRUE, confidence = 0.95, min.total.events = 80,
-min.hotspot.threshold = 2, comp.method = "Phi", plot = TRUE, sep.plots = FALSE,
+hc <- hotspots.comparison(dataset = roadkills, 
+sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:5, 
+region.column = "segment", group.column = "taxon",
+include.all.together = TRUE, confidence = 0.95, 
+min.total.events = 80, min.hotspot.threshold = 2, 
+comp.method = "Phi", plot = TRUE, sep.plots = FALSE,
 omit.baseline.interval = TRUE, ylim = c(0, 1))
 
 hc
 }
-\keyword{}

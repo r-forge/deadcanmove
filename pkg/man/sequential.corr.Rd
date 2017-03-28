@@ -7,8 +7,9 @@ Sequential correlation
 This function calculates the correlation between the hotspots obtained from each submatrix and those of the baseline (sub)matrix of the corresponding group.
 }
 \usage{
-sequential.corr(hotspots.list, hotspots.thresholds, comp.method = "Phi",
-baseline.interval = 1, baseline.gap = 0, messages = "TRUE")
+sequential.corr(hotspots.list, hotspots.thresholds, 
+comp.method = "Phi", baseline.interval = 1, baseline.gap = 0, 
+messages = "TRUE")
 }
 \arguments{
   \item{hotspots.list}{a list of hotspot tables resulting from the \code{\link{sequential.hotspots}} function}
@@ -19,12 +20,8 @@ baseline.interval = 1, baseline.gap = 0, messages = "TRUE")
   \item{baseline.gap}{the sampling gap with which to correlate all other sampling schemes for each group; defaults to 0 (no gap between samples)}
   \item{messages}{logical, whether to display messages}
 }
-\details{
-}
 \value{
 A matrix of correlations (or whatever index was defined in \code{method}) between the hotspots obtained for each group and sampling scheme, and the hotspots obtained from the baseline data for the group under analysis.
-}
-\references{
 }
 \author{
 A. Marcia Barbosa
@@ -40,15 +37,17 @@ data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills,
 sampl.columns = 4:ncol(roadkills), sampl.interval = 1:3,
-group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
-keep.nonsampl.columns = TRUE, n.subsampl.columns = 120)
+group.column = "taxon", include.all.together = TRUE, 
+remove.zeros = TRUE, keep.nonsampl.columns = TRUE, 
+n.subsampl.columns = 120)
 
 hsl <- sequential.hotspots(dataset = roadkills, submats = submats,
 region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
 
 hsn <- hotspot.numbers(hotspots.list = hsl, sampl.intervals = 1:3,
-groups = as.character(unique(roadkills$taxon)), include.all.together = TRUE,
-min.total.events = 0, min.hotspot.threshold = 2)
+groups = as.character(unique(roadkills$taxon)), 
+include.all.together = TRUE, min.total.events = 0, 
+min.hotspot.threshold = 2)
 
 seqcorr <- sequential.corr(hotspots.list = hsl,
 hotspots.thresholds = hsn$HS.threshold, comp.method = "Phi",
@@ -56,5 +55,4 @@ baseline.gap = 0, messages = "TRUE")
 
 seqcorr
 }
-\keyword{}
 

@@ -35,8 +35,6 @@ Santos S.M., Carvalho F., Mira A. (2011) How long do the dead survive on the
 road? Carcass persistence probability and implications for road-kill monitoring 
 surveys. PLoS ONE 6(9), e25383 (doi:10.1371/journal.pone.0025383)
 }
-\references{
-}
 \examples{
 data(roadkills)
 

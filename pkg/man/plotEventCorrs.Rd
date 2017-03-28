@@ -1,8 +1,7 @@
 \name{plotEventCorrs}
 \alias{plotEventCorrs}
 \title{
-Plot correlations between events in each subsampling dataset and the baseline
-dataset
+Plot correlations between events in each subsampling dataset and the baseline dataset
 }
 \description{
 This function plots the correlation with baseline against sampling interval
@@ -16,16 +15,11 @@ plotEventCorrs(event.corrs, sep.plots = FALSE, ...)
   \item{sep.plots}{logical, whether to place each plot in a separate window}
   \item{\dots}{additional arguments to pass to the \code{\link{plot}} function}
 }
-\details{
-}
 \value{
-}
-\references{
+This function produces plots.
 }
 \author{
 A. Marcia Barbosa
-}
-\note{
 }
 \seealso{
 \code{\link{plot}}, \code{\link{binary.comparison}}, \code{\link{sequential.corr}}
@@ -35,8 +29,9 @@ data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills,
 sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:3,
-group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
-keep.nonsampl.columns = TRUE, n.subsampl.columns = 80)
+group.column = "taxon", include.all.together = TRUE, 
+remove.zeros = TRUE, keep.nonsampl.columns = TRUE, 
+n.subsampl.columns = 80)
 
 names(submats)
 
@@ -54,4 +49,3 @@ baseline.interval = 1, messages = "TRUE")
 plotEventCorrs(event.corrs = seqcorr, sep.plots = FALSE, ylim = c(0, 1),
 pch = 20)
 }
-\keyword{}

@@ -5,8 +5,9 @@
 Applies function \code{posteriorN} of package \pkg{carcass} sequentially to a given set of submatrices, to estimate the number of (roadkill mortality) events based on Bayes' theorem using up to four different estimators (Korner-Nievergelt et al. 2015)
 }
 \usage{
-sequential.posteriorN(submats, submats.N, first.subsampl.col, region.column, 
-persist, effic, estimators = c("korner", "huso", "erickson", "etterson"), ...)
+sequential.posteriorN(submats, submats.N, first.subsampl.col, 
+region.column, persist, effic, estimators = c("korner", "huso", 
+"erickson", "etterson"), ...)
 }
 \arguments{
   \item{submats}{
@@ -34,8 +35,6 @@ character vector specifying the estimators to calculate; the default is all avai
 additional arguments for function \code{posteriorN} in package \pkg{carcass}
 }
 }
-\details{
-}
 \value{
 This function returns a list
 }
@@ -45,12 +44,6 @@ Korner-Nievergelt F, Behr O, Brinkmann R, Etterson MA, Huso MMP, Dalthorp D, Kor
 \author{
 A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
 }
-\note{
-}
 \seealso{
 \code{\link{sequential.submatrix}}, \code{\link{sequential.Nevents}}
 }
-\examples{
-
-}
-\keyword{}

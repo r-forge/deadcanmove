@@ -12,17 +12,11 @@ from the baseline (reference) sampling scheme. It is used by functions \code{\li
 \usage{
 binary.comp.methods()
 }
-\details{
-}
 \value{
 A character vector naming the methods implemented.
 }
-\references{
-}
 \author{
 A. Marcia Barbosa
-}
-\note{
 }
 \seealso{
 \code{\link{binary.comparison}}, \code{\link{sequential.corr}}

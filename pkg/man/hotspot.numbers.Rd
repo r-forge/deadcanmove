@@ -8,9 +8,9 @@ This function calculates the total numbers of events and the hotspot thresholds
 for each group and sampling interval.
 }
 \usage{
-hotspot.numbers(hotspots.list, sampl.intervals, groups, include.all.together =
-TRUE,
-min.total.events = 0, min.hotspot.threshold = 2)
+hotspot.numbers(hotspots.list, sampl.intervals, groups, 
+include.all.together = TRUE, min.total.events = 0, 
+min.hotspot.threshold = 2)
 }
 \arguments{
   \item{hotspots.list}{results of the sequential.hotspots function}
@@ -21,16 +21,12 @@ min.total.events = 0, min.hotspot.threshold = 2)
   \item{min.total.events}{minimum total number of events to calculate hotspots for a group}
   \item{min.hotspot.threshold}{minimum number of events for a region to be considered a hotspot}
 }
-\details{
-}
 \value{
 A list of the following matrices:
  \item{N.events}{}
  \item{HS.threshold}{}
  \item{N.hotspots}{}
  \item{events.in.HS}{}
-}
-\references{
 }
 \author{
 A. Marcia Barbosa, J. Tiago Marques, Sara M. Santos
@@ -46,16 +42,16 @@ data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills,
 sampl.columns = 4:ncol(roadkills), sampl.intervals = 1:3,
-group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
-keep.nonsampl.columns = TRUE, n.subsampl.columns = 120)
+group.column = "taxon", include.all.together = TRUE, 
+remove.zeros = TRUE, keep.nonsampl.columns = TRUE, 
+n.subsampl.columns = 120)
 
 hsl <- sequential.hotspots(dataset = roadkills, submats = submats,
 region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
 
 hsn <- hotspot.numbers(hotspots.list = hsl, sampl.intervals = 1:3,
-groups = as.character(unique(roadkills$taxon)), include.all.together = TRUE,
-min.hotspot.threshold = 2)
+groups = as.character(unique(roadkills$taxon)), 
+include.all.together = TRUE, min.hotspot.threshold = 2)
 
 hsn
 }
-\keyword{}

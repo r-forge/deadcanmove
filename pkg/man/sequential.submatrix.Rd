@@ -9,8 +9,9 @@ sampling schemes and taxonomic groups.
 }
 \usage{
 sequential.submatrix(dataset, sampl.columns, sampl.intervals = NULL,
-window.sizes = NULL, gap.sizes = NULL, start.columns = 1, all.combinations = TRUE,
-group.column = NULL, include.all.together = TRUE, remove.zeros = TRUE,
+window.sizes = NULL, gap.sizes = NULL, start.columns = 1, 
+all.combinations = TRUE, group.column = NULL, 
+include.all.together = TRUE, remove.zeros = TRUE,
 keep.nonsampl.columns = TRUE, n.subsampl.columns = NULL)
 }
 \arguments{
@@ -48,17 +49,11 @@ logical, whether to include also the non-sampling columns of \code{dataset} in t
 number of subsampl.columns
 }
 }
-\details{
-}
 \value{
 A list of submatrices
 }
-\references{
-}
 \author{
 A. Marcia Barbosa
-}
-\note{
 }
 \seealso{
 \code{\link{submatrix}}, \code{\link{subset}}
@@ -66,17 +61,21 @@ A. Marcia Barbosa
 \examples{
 data(roadkills)
 
-submats1 <- sequential.submatrix(dataset = roadkills, sampl.columns = 4:ncol(roadkills),
-sampl.intervals = c(1, 3), group.column = "taxon", include.all.together = TRUE,
-remove.zeros = TRUE, keep.nonsampl.columns = TRUE, n.subsampl.columns = 85)
+submats1 <- sequential.submatrix(dataset = roadkills, 
+sampl.columns = 4:ncol(roadkills), sampl.intervals = c(1, 3), 
+group.column = "taxon", include.all.together = TRUE,
+remove.zeros = TRUE, keep.nonsampl.columns = TRUE, 
+n.subsampl.columns = 85)
 
 names(submats1)
 head(submats1[[1]])
 
-submats2 <- sequential.submatrix(dataset = roadkills, sampl.columns = 4:ncol(roadkills),
-window.sizes = c(1,3,5), gap.sizes = 1:3, start.columns = 1, all.combinations = TRUE,
-group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
-keep.nonsampl.columns = TRUE, n.subsampl.columns = 85)
+submats2 <- sequential.submatrix(dataset = roadkills, 
+sampl.columns = 4:ncol(roadkills), window.sizes = c(1,3,5), 
+gap.sizes = 1:3, start.columns = 1, all.combinations = TRUE,
+group.column = "taxon", include.all.together = TRUE, 
+remove.zeros = TRUE, keep.nonsampl.columns = TRUE, 
+n.subsampl.columns = 85)
 
 names(submats2)
 head(submats2[[1]])

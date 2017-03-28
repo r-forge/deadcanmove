@@ -14,17 +14,11 @@ binary.comparison(x, y, method)
   \item{y}{a binary (0-1) vector to compare with \code{x}}
   \item{method}{the comparison measure to use. Current options are "Phi", "Mathews", "Yule", "Jaccard", "Baroni", "kappa", "CCR", "TSS", "gain", "loss", and "balance".}
 }
-\details{
-}
 \value{
 A numeric value indicating the cofficient of association specified in \code{method}.
 }
-\references{
-}
 \author{
 A. Marcia Barbosa
-}
-\note{
 }
 \seealso{
 \code{\link{binary.comp.methods}}
@@ -36,4 +30,3 @@ bin2 <- sample(c(0, 1), 100, replace = TRUE)
 binary.comparison(bin1, bin2, method = "Phi")
 binary.comparison(bin1, bin2, method = "kappa")
 }
-\keyword{}

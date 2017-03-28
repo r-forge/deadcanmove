@@ -7,9 +7,10 @@ Extract a submatrix for a given taxomic group and/or sampling scheme
 Given a baseline dataset, this function extracts a sub-dataset for a given taxomic group and/or sampling scheme, defined either by a sampling interval (periodicity) or by a window size (consecutive sampling days each time) and a gap size (gaps between sampling windows).
 }
 \usage{
-submatrix(dataset, sampl.columns, sampl.interval = NULL, window.size = NULL,
-gap.size = NULL, start.column = 1, group.column = NULL, group.names = NULL,
-remove.zeros = TRUE, keep.nonsampl.columns = TRUE)
+submatrix(dataset, sampl.columns, sampl.interval = NULL, 
+window.size = NULL, gap.size = NULL, start.column = 1, 
+group.column = NULL, group.names = NULL, remove.zeros = TRUE, 
+keep.nonsampl.columns = TRUE)
 }
 \arguments{
   \item{dataset}{
@@ -41,17 +42,11 @@ logical indicating whether to remove rows where all extracted days have zero obs
 logical indicating whether to keep the non-sampling columns in the extracted result
 }
 }
-\details{
-}
 \value{
 This function returns a subset of \code{dataset} containing the taxonomic groups and sampling columns resulting from the given sampling scheme.
 }
-\references{
-}
 \author{
 A. Marcia Barbosa, J. Tiago Marques
-}
-\note{
 }
 \seealso{
 \code{\link{sequential.submatrix}}, \code{\link{subset}}

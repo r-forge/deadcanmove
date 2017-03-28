@@ -7,8 +7,8 @@ Calculate roadkill hotspots for a series of (sub)sampling datasets
 This function applies \code{\link{hotspots}} sequencially to a given set of submatrices to identify the hotspot regions in each dataset, using an adaptation of the method of Malo et al. (2004).
 }
 \usage{
-sequential.hotspots(dataset, submats, region.column, first.subsampl.col, 
-confidence = 0.95)
+sequential.hotspots(dataset, submats, region.column, 
+first.subsampl.col, confidence = 0.95)
 }
 \arguments{
   \item{dataset}{
@@ -28,8 +28,6 @@ index number of the first column containing subsampling data
 confidence threshold to consider hotspots. The default is 0.95
 }
 }
-\details{
-}
 \value{
 A list of 2 elements:
 \item{hotspots.thresholds}{A named integer vector}
@@ -41,8 +39,6 @@ Malo, J.E., Suarez, F., Diez, A. (2004) Can we mitigate animal-vehicle accidents
 \author{
 A. Marcia Barbosa
 }
-\note{
-}
 \seealso{
 \code{\link{hotspots}}
 }
@@ -51,8 +47,9 @@ data(roadkills)
 
 submats <- sequential.submatrix(dataset = roadkills,
 sampl.columns = 4:ncol(roadkills), window.sizes = 1, gap.sizes = 1:3,
-group.column = "taxon", include.all.together = TRUE, remove.zeros = TRUE,
-keep.nonsampl.columns = TRUE, n.subsampl.columns = 85)
+group.column = "taxon", include.all.together = TRUE, 
+remove.zeros = TRUE, keep.nonsampl.columns = TRUE, 
+n.subsampl.columns = 85)
 
 shs <- sequential.hotspots(dataset = roadkills, submats = submats,
 region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
@@ -60,4 +57,3 @@ region.column = "segment", first.subsampl.col = 4, confidence = 0.95)
 shs
 str(shs)
 }
-\keyword{}
